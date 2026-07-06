@@ -1,0 +1,107 @@
+<header class="site-header sticky-top">
+
+  <!-- ── Logo Strip (white bar) ──────────────────────────── -->
+  <div class="bg-white py-2 border-bottom">
+    <div class="container-xxl px-3 px-md-4 px-lg-5">
+      <div class="row align-items-center g-2">
+
+        <!-- Logo strip image spans full row on mobile, half on desktop -->
+        <div class="col-12 col-md-6 d-flex justify-content-center">
+          <img src="/images/logo-strip.png" alt="Partner Logos" class="logo-strip-img img-fluid" />
+        </div>
+
+        <!-- TEVTA / KIU / DTSE logos -->
+        <div class="col-6 col-md-3 d-flex align-items-center justify-content-center gap-2 gap-md-3">
+          <img src="/images/partner-logos/tevta.png" alt="TEVTA" class="partner-logo" />
+          <img src="/images/partner-logos/kiu.png" alt="KIU" class="partner-logo" />
+          <img src="/images/partner-logos/dtse_gb.jpeg" alt="DTSE GB" class="partner-logo" />
+        </div>
+
+        <!-- IMS logo + CoE title -->
+        <div class="col-6 col-md-3 d-flex align-items-center justify-content-center gap-2">
+          <img src="/images/partner-logos/ims.png" alt="IMS" class="partner-logo" />
+          <p class="coename-text mb-0">Centre of Excellence<br />(CoE)</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Main Navbar (purple) ────────────────────────────── -->
+  <nav class="navbar navbar-expand-lg navbar-purple py-3">
+    <div class="container-xxl px-3 px-md-4 px-lg-5">
+
+      <!-- Mobile: Apply Now on left -->
+      <a href="/courses" class="d-lg-none btn btn-brand rounded-pill px-4 py-2 fw-bold" style="font-size:0.875rem;">
+        Apply Now
+      </a>
+
+      <!-- Hamburger -->
+      <button class="navbar-toggler ms-auto border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible nav -->
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-auto py-3 py-lg-0 gap-0 gap-lg-1">
+
+          <li class="nav-item">
+            <a href="/#home" class="nav-link px-3 <%= activeNav === 'home' ? 'active fw-bold' : '' %>">
+              Home
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/#about" class="nav-link px-3" id="aboutNav">
+              About Us
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/courses" class="nav-link px-3 <%= activeNav === 'courses' ? 'active fw-bold' : '' %>">
+              Courses
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <span class="nav-link px-3 nav-notif-trigger" id="notifTrigger" role="button" tabindex="0">
+              Notifications
+            </span>
+          </li>
+
+          <li class="nav-item">
+            <a href="/faq" class="nav-link px-3 <%= activeNav === 'faq' ? 'active fw-bold' : '' %>">
+              FAQ
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/#contact" class="nav-link px-3" id="contactNav">
+              Contact Us
+            </a>
+          </li>
+
+        </ul>
+
+        <!-- Desktop right-side actions -->
+        <div class="d-none d-lg-flex align-items-center gap-2 ms-auto">
+          <a href="<%= applyFormLink %>" target="_blank" rel="noopener noreferrer"
+            class="btn btn-brand rounded-pill px-4 py-2 fw-bold">
+            Apply Now
+          </a>
+          <button class="btn-a11y" id="textSizeBtn" title="Cycle text size"
+            aria-label="Accessibility: adjust text size">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z" />
+            </svg>
+          </button>
+        </div>
+
+      </div><!-- /.navbar-collapse -->
+    </div>
+  </nav>
+
+</header>
+
+<%- include('notifications') %>

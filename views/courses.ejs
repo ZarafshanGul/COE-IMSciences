@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('partials/head', { pageTitle: pageTitle }) %></head>
+<body>
+<div class="page-bg"></div>
+<%- include('partials/header') %>
+
+<main>
+  <div class="container-xxl px-3 px-md-4 px-lg-5 py-5">
+
+        <!-- Page title -->
+        <h1 class="fw-bold mb-4" style="font-size:2.2rem;">Courses Offered</h1>
+
+        <!-- ── SECTION 1: IMSciences Hub ─────────────────── -->
+        <div class="mb-5">
+          <div class="cp-center-heading mb-2">
+            <h2 class="fw-bold fs-4 mb-0">
+              IMSciences <span class="cp-hub fw-normal">(Hub)</span>
+            </h2>
+            <span class="cp-badge-open">Registrations Open</span>
+          </div>
+          <p class="mb-3" style="color:var(--text-light); font-size:0.9rem;">
+            The main Hub of the programme, currently enrolling for the following fully-funded,
+            industry-aligned, competency based courses. Click any course to view details and register.
+          </p>
+          <div class="d-flex flex-column gap-2">
+            <% imsCourses.forEach(function(c) { %>
+              <a href="/courses/<%= c.slug %>" class="cp-course-row">
+                <span><%= c.title %></span>
+                <span class="cp-arrow-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                  </svg>
+                </span>
+              </a>
+            <% }); %>
+          </div>
+        </div>
+
+        <!-- ── SECTION 2: Previous Courses ──────────────── -->
+        <div class="mb-5">
+          <div class="cp-center-heading mb-2">
+            <h2 class="fw-bold fs-4 mb-0">Previous Courses</h2>
+            <span class="cp-badge-closed">Registrations Closed</span>
+          </div>
+          <p class="mb-3" style="color:var(--text-light); font-size:0.9rem;">
+            These courses were previously offered at IMSciences. Click to view course details.
+          </p>
+          <div class="d-flex flex-column gap-2">
+            <% prevCourses.forEach(function(c) { %>
+              <a href="/courses/<%= c.slug %>" class="cp-course-row cp-course-row--prev">
+                <span><%= c.title %></span>
+                <span class="cp-arrow-btn cp-arrow-btn--muted">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                  </svg>
+                </span>
+              </a>
+            <% }); %>
+          </div>
+        </div>
+
+        <!-- ── SECTION 3: Spokes ──────────────────────────── -->
+        <div class="mb-5">
+          <div class="cp-center-heading mb-2">
+            <h2 class="fw-bold fs-4 mb-0">Spokes</h2>
+          </div>
+          <p class="mb-4" style="color:var(--text-light); font-size:0.9rem;">
+            Partner institutes delivering approved courses at the local level across KP and GB.
+          </p>
+
+          <% var spokeCenters = centers.filter(function(c){ return c.type === 'spoke'; }); %>
+          <% spokeCenters.forEach(function(center) { %>
+            <div class="mb-4">
+              <p class="cp-spoke-name">
+                <%= center.shortName || center.name %>
+                <span class="cp-location fw-normal"> (<%= center.location %>)</span>
+              </p>
+              <% if (center.courses && center.courses.length) { %>
+                <div class="d-flex flex-column gap-2">
+                  <% center.courses.forEach(function(course) { %>
+                    <a href="/courses/<%= course.slug %>" class="cp-course-row">
+                      <span><%= course.title %></span>
+                      <span class="cp-arrow-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                          <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                        </svg>
+                      </span>
+                    </a>
+                  <% }); %>
+                </div>
+              <% } %>
+            </div>
+          <% }); %>
+        </div>
+  </div>
+</main>
+
+<%- include('partials/footer') %>
+<%- include('partials/scripts') %>
+</body>
+</html>

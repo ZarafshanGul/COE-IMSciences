@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('partials/head', { pageTitle: pageTitle }) %></head>
+<body>
+<div class="page-bg"></div>
+<%- include('partials/header') %>
+
+<main>
+  <div class="container-xxl px-3 px-md-4 px-lg-5 py-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8 col-xl-7">
+
+        <div class="section-divider mb-3"></div>
+        <h1 class="fw-bold mb-2" style="font-size:2.2rem;">Frequently Asked Questions</h1>
+        <p class="mb-5" style="color:var(--text-light);">
+          Everything you need to know about applying to and studying at the Centre of Excellence.
+        </p>
+
+        <!-- Bootstrap Accordion — no custom jQuery needed -->
+        <div class="accordion d-flex flex-column gap-2" id="faqAccordion">
+          <% faqs.forEach(function(faq, i) { %>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="faqHead<%= i %>">
+                <button class="accordion-button <%= i === 0 ? '' : 'collapsed' %>"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#faqBody<%= i %>"
+                        aria-expanded="<%= i === 0 ? 'true' : 'false' %>"
+                        aria-controls="faqBody<%= i %>">
+                  <%= faq.q %>
+                </button>
+              </h2>
+              <div id="faqBody<%= i %>"
+                   class="accordion-collapse collapse <%= i === 0 ? 'show' : '' %>"
+                   aria-labelledby="faqHead<%= i %>"
+                   data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  <%= faq.a %>
+                </div>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<%- include('partials/footer') %>
+<%- include('partials/scripts') %>
+</body>
+</html>

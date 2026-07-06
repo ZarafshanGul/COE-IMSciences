@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('partials/head', { pageTitle: pageTitle }) %></head>
+<body>
+<div class="page-bg"></div>
+<%- include('partials/header') %>
+
+<main>
+  <div class="container-xxl px-3 px-md-4 px-lg-5 py-5">
+
+        <!-- Breadcrumb -->
+        <nav class="cd-breadcrumb mb-4" aria-label="Breadcrumb">
+          <a href="/courses">← Back to All Courses</a>
+        </nav>
+
+        <!-- Hero -->
+        <div class="text-center mb-5">
+          <h1 class="cd-title mb-3"><%= course.title %></h1>
+          <p class="cd-tagline mb-0"><%= course.tagline %></p>
+        </div>
+
+        <!-- About This Course -->
+        <div class="cd-card card border-0 p-4 p-md-5 mb-4">
+          <h2 class="fw-bold mb-3" style="font-size:1.5rem;">About This Course</h2>
+          <p class="mb-4 lh-lg" style="color:var(--text-light);"><%= course.about %></p>
+
+          <!-- Duration + Prerequisites -->
+          <div class="row g-3">
+            <div class="col-12 col-sm-6">
+              <div class="cd-card card border-0 p-3 h-100">
+                <p class="cd-meta-label mb-1">Duration</p>
+                <p class="cd-meta-value"><%= course.duration %></p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6">
+              <div class="cd-card card border-0 p-3 h-100">
+                <div class="d-flex align-items-center gap-2 mb-1">
+                  <p class="cd-meta-label mb-0">Prerequisites</p>
+                </div>
+                <p class="cd-meta-value"><%= course.prerequisites %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- What You'll Learn -->
+        <div class="cd-card card border-0 p-4 p-md-5 mb-4">
+          <h2 class="fw-bold mb-4" style="font-size:1.5rem;">What You'll Learn</h2>
+          <div class="row g-2">
+            <% course.learn.forEach(function(item) { %>
+              <div class="col-12 col-sm-6">
+                <div class="cd-learn-item">
+                  <svg class="cd-check" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  <span><%= item %></span>
+                </div>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+
+        <!-- CTA Box -->
+        <% if (course.registrationsOpen && course.applyLink) { %>
+          <div class="cd-cta-box">
+            <p class="fw-semibold mb-4" style="font-size:1.2rem; color:var(--text-dark);">
+              Ready to transform your career with <%= course.title %>?
+            </p>
+            <a href="<%= applyFormLink %>"
+               target="_blank" rel="noopener noreferrer"
+               class="btn btn-brand rounded-pill px-5 py-3 fw-bold"
+               style="font-size:1.05rem;">
+              Register Now
+            </a>
+          </div>
+        <% } else { %>
+          <div class="cd-cta-box cd-cta-box--closed">
+            <p class="fw-semibold mb-4" style="font-size:1.1rem; color:var(--text-dark);">
+              Registrations for this course are currently closed.
+            </p>
+            <a href="/courses" class="btn btn-brand-outline rounded-pill px-5 py-3 fw-bold">
+              View Open Courses
+            </a>
+          </div>
+        <% } %>
+
+  </div>
+</main>
+
+<%- include('partials/footer') %>
+<%- include('partials/scripts') %>
+</body>
+</html>

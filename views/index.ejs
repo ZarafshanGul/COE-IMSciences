@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><%- include('partials/head', { pageTitle: pageTitle }) %></head>
+
+<body>
+  <div class="page-bg"></div>
+  <%- include('partials/header') %>
+
+    <main>
+
+      <!-- ════════════════════════════════════════════════════════
+     SECTION 1 — HERO CAROUSEL
+     ════════════════════════════════════════════════════════ -->
+      <section id="home" class="hero-section">
+        <div class="container-xxl px-3 px-md-4 px-lg-5">
+
+          <!-- ===================== DESKTOP ===================== -->
+          <div class="hero-slick d-none d-md-block">
+
+            <% heroSlides.forEach(function(slide) { %>
+
+              <div class="hero-slide">
+
+                <div class="hero-slide-images <%= slide.layout %>">
+
+                  <% if (slide.layout==='two-col' ) { %>
+
+                    <% slide.images.forEach(function(img) { %>
+                      <div class="hero-img-col">
+                        <img src="<%= img.src %>" alt="<%= img.alt %>">
+                      </div>
+                      <% }); %>
+
+                        <% } else { %>
+
+                          <div class="hero-img-half">
+                            <img src="<%= slide.images[0].src %>" alt="<%= slide.images[0].alt %>">
+                          </div>
+
+                          <div class="hero-img-quarters">
+
+                            <div class="hero-img-col">
+                              <img src="<%= slide.images[1].src %>" alt="<%= slide.images[1].alt %>">
+                            </div>
+
+                            <div class="hero-img-col">
+                              <img src="<%= slide.images[2].src %>" alt="<%= slide.images[2].alt %>">
+                            </div>
+
+                          </div>
+
+                          <% } %>
+
+                            <div class="hero-overlay"></div>
+
+                            <div class="hero-caption">
+                              <h1>
+                                <%= slide.title %>
+                              </h1>
+
+                              <% if (slide.subtitle) { %>
+                                <p>
+                                  <% slide.subtitle.split('\n').forEach(function(line){ %>
+                                    <%= line %><br>
+                                      <% }); %>
+                                </p>
+                                <% } %>
+
+                            </div>
+
+                </div>
+
+              </div>
+
+              <% }); %>
+
+          </div>
+
+          <!-- ===================== MOBILE ===================== -->
+          <!-- Mobile Hero -->
+          <div class="hero-slick-mobile d-block d-md-none">
+            <% heroSlides.forEach(function(slide){ %>
+
+              <% slide.images .filter(function(img){ return img.mobile !==false; }) .forEach(function(img){ %>
+
+                <div class="hero-slide">
+                  <div class="hero-mobile-image">
+                    <img src="<%= img.src %>" alt="<%= img.alt %>">
+                    <div class="hero-overlay"></div>
+
+                    <div class="hero-caption">
+                      <h1>
+                        <%= slide.title %>
+                      </h1>
+
+                      <% if (slide.subtitle) { %>
+                        <p>
+                          <% slide.subtitle.split('\n').forEach(function(line){ %>
+                            <%= line %><br>
+                              <% }); %>
+                        </p>
+                        <% } %>
+                    </div>
+                  </div>
+                </div>
+
+                <% }); %>
+
+                  <% }); %>
+          </div>
+        </div>
+      </section>
+      <!-- ════════════════════════════════════════════════════════
+       SECTION 2 — ABOUT US
+       ════════════════════════════════════════════════════════ -->
+      <section id="about" class="py-5">
+        <div class="container-xxl px-3 px-md-4 px-lg-5">
+          <div class="section-divider mb-3"></div>
+          <h2 class="fw-bold mb-4" style="font-size:1.9rem;">About Us</h2>
+          <div class="content-card p-4 p-md-5">
+            <p class="mb-0 lh-lg" style="color:var(--text-light); font-size:1.05rem;">
+              The "Centre of Excellence (CoE) for High Tech and Digital Skills in Khyber Pakhtunkhwa"
+              is a state-of-the-art training facility established at the Institute of Management Sciences
+              (IMSciences), Peshawar, in collaboration with the British Council and the European Union.
+              The CoE is designed to provide women across KP with access to quality technical and
+              vocational education, empowering them with globally recognized skills in emerging digital
+              and high-tech fields.
+            </p>
+          </div>
+        </div>
+        </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════
+       SECTION 3 — TVET SECTOR SUPPORT PROGRAMME
+       ════════════════════════════════════════════════════════ -->
+      <section class="py-5">
+        <div class="container-xxl px-3 px-md-4 px-lg-5">
+          <div class="section-divider mb-3"></div>
+          <h2 class="fw-bold mb-4" style="font-size:1.9rem;">TVET Sector Support Programme — Output IV</h2>
+          <div class="content-card p-4 p-md-5">
+            <p style="color:var(--text-light);">
+              The European Union (EU) has been supporting Pakistan's TVET sector through the TVET Sector
+              Support Programme (TVET SSP) since 2011. After successfully completing three phases, the
+              fourth phase of the programme (EU TVET-IV) has commenced, implemented by the British Council
+              and GIZ. The British Council is leading Component 4, which focuses on the following two outputs:
+            </p>
+            <ul class="list-unstyled mt-3 mb-0 d-flex flex-column gap-3">
+              <li class="d-flex gap-3">
+                <span class="fw-bold flex-shrink-0" style="color:var(--secondary);">Output 4.1</span>
+                <span style="color:var(--text-light);">Digital and high-tech CBT courses are developed and implemented
+                  for training women, including those from refugee communities and returnees.</span>
+              </li>
+              <li class="d-flex gap-3">
+                <span class="fw-bold flex-shrink-0" style="color:var(--secondary);">Output 4.2</span>
+                <span style="color:var(--text-light);">Two internationally accredited Centres of Excellence (CoEs) for
+                  digital skills and high-tech training for women are established, offering career-focused programmes in
+                  Robotics, AI, IoT, Data Science/Analytics, etc.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════
+     SECTION 4 — HUB AND SPOKE MODEL
+     ════════════════════════════════════════════════════════ -->
+      <section class="py-5">
+        <div class="container-xxl px-3 px-md-4 px-lg-5">
+          <div class="col-12 col-lg-10">
+            <div class="section-divider mb-3"></div>
+            <h2 class="fw-bold mb-4" style="font-size:1.9rem;">
+              Hub and Spoke Model
+            </h2>
+            <div class="row g-4 align-items-center">
+              <!-- Features -->
+              <div class="col-12 col-md-6">
+                <div class="content-card p-4">
+                  <h5 class="fw-bold mb-3" style="color:var(--purple);">
+                    Main CoE (Hub — IMSciences)
+                  </h5>
+                  <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                    <% hubFeatures.forEach(function(f) { %>
+                      <li class="d-flex align-items-center gap-2">
+                        <span class="spoke-dot">•</span>
+                        <span style="color:var(--text-light)">
+                          <%= f %>
+                        </span>
+                      </li>
+                      <% }); %>
+                  </ul>
+                </div>
+              </div>
+              <!-- Image -->
+              <div class="col-12 col-md-6 text-center">
+                <img src="/images/hub-spoke-image-final.png" alt="Hub and Spoke Model Diagram"
+                  class="img-fluid hub-spoke-img">
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════
+       SECTION 5 — IMSCIENCES ROLE
+       ════════════════════════════════════════════════════════ -->
+      <section class="py-5">
+        <div class="container-xxl px-3 px-md-4 px-lg-5">
+          <div class="section-divider mb-3"></div>
+          <h2 class="fw-bold mb-4" style="font-size:1.9rem;">IMSciences — Role as the Hub</h2>
+          <div class="content-card p-4 p-md-5">
+            <p style="color:var(--text-light);">
+              The Institute of Management Sciences (IMSciences), Peshawar, operates as the main hub of
+              the CoE, providing comprehensive support for women's skills development across the province.
+              IMSciences brings together its world-class facilities, academic expertise, and partnerships
+              to ensure that the CoE serves as a beacon of excellence.
+            </p>
+            <p class="mb-2" style="color:var(--text-light);">IMSciences plays a pivotal role in:</p>
+            <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+              <li class="d-flex gap-2"><span class="spoke-dot">•</span><span style="color:var(--text-light);">Hosting
+                  the main CoE with advanced training facilities</span></li>
+              <li class="d-flex gap-2"><span class="spoke-dot">•</span><span
+                  style="color:var(--text-light);">Coordinating with spoke centers across KP to deliver decentralized
+                  training</span></li>
+              <li class="d-flex gap-2"><span class="spoke-dot">•</span><span style="color:var(--text-light);">Offering
+                  internationally recognized certifications in partnership with global institutions</span></li>
+            </ul>
+          </div>
+        </div>
+        </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════
+       SECTION 6 — SPOKES (PARTNER INSTITUTES)
+       ════════════════════════════════════════════════════════ -->
+      <section class="py-5">
+        <div class="container-xxl px-3 px-md-4 px-lg-5">
+          <div class="section-divider mb-3"></div>
+          <h2 class="fw-bold mb-4" style="font-size:1.9rem;">Spokes — Role as Partner Institutes</h2>
+          <div class="content-card p-4 p-md-5">
+            <p style="color:var(--text-light);">
+              In the Hub and Spoke model, Spokes are partner institutes responsible for delivering approved
+              courses at the local level, enrolling and supporting students, and implementing curriculum
+              and quality standards. They ensure effective training delivery, maintain facilities, collect
+              and report data, and provide feedback from the ground.
+            </p>
+            <p class="mb-2 fw-semibold" style="color:var(--text-dark);">List of Spoke Institutes:</p>
+            <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+              <% spokeInstitutes.forEach(function(s) { %>
+                <li class="d-flex gap-2">
+                  <span class="spoke-dot">•</span>
+                  <span style="color:var(--text-light);">
+                    <%= s %>
+                  </span>
+                </li>
+                <% }); %>
+            </ul>
+          </div>
+        </div>
+        </div>
+        </div>
+      </section>
+
+      <!-- ════════════════════════════════════════════════════════
+       SECTION 7 — COURSES
+       ════════════════════════════════════════════════════════ -->
+      <section class="py-5">
+        <div class="container-xxl px-3 px-md-4 px-lg-5">
+          <div class="section-divider mb-3"></div>
+          <h2 class="fw-bold mb-3" style="font-size:1.9rem;">Courses</h2>
+          <p class="mb-4 lh-lg" style="color:var(--text-light);">
+            The Centre of Excellence offers fully funded Competency-Based Training and Assessment (CBT&A) courses
+            designed to equip learners with practical, in-demand skills. Each programme includes hands-on training,
+            industry-aligned course content, and on-the-job learning to ensure graduates are prepared for real workplace
+            environments. These market-oriented courses open pathways to employment, entrepreneurship, and advanced
+            digital and high-tech careers.
+          </p>
+          <div class="row g-2">
+            <% courseCategories.forEach(function(c) { %>
+              <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+                <div class="cat-pill">
+                  <span class="cat-dot">•</span>
+                  <span>
+                    <%= c %>
+                  </span>
+                </div>
+              </div>
+              <% }); %>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <%- include('partials/footer') %>
+      <%- include('partials/scripts') %>
+</body>
+
+</html>
