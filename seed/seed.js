@@ -24,10 +24,22 @@ async function seed() {
 
   const courseDocs = [];
   createdCenters.forEach((center) => {
-    const courses = fallback.coursesByCenter[center.slug] || [];
+    let courses = [];
+
+    if (center.slug === 'imsciences-peshawar') {
+      courses = [
+        ...fallback.imsCourses.map((c) => ({ ...c, status: 'open' })),
+        ...fallback.prevCourses.map((c) => ({ ...c, status: 'closed' })),
+      ];
+    } else {
+      courses = (fallback.coursesByCenter[center.slug] || []).map((c) => ({
+        ...c,
+        status: center.registrationsOpen ? 'open' : 'closed',
+      }));
+    }
+
     courses.forEach((c) => {
-      // coursesByCenter values are {title, slug} objects
-      courseDocs.push({ title: c.title, center: center._id, status: center.registrationsOpen ? 'open' : 'closed' });
+      courseDocs.push({ title: c.title, center: center._id, status: c.status });
     });
   });
 
