@@ -95,9 +95,9 @@ function renderNotifications(items) {
           '</a>'
         : '') +
 
-      '<span class="notif-date">' +
-      formatDate(n.publishedAt) +
-      '</span>' +
+      // '<span class="notif-date">' +
+      // formatDate(n.publishedAt) +
+      // '</span>' +
 
       '</div>'
     );
@@ -154,6 +154,11 @@ function closeNotifications() {
   $('body').removeClass('notif-open');
 }
 
+/* ── Auto-show notifications on homepage load ─────────────── */
+if (window.location.pathname === '/' || window.location.pathname === '/index') {
+  openNotifications();
+}
+
 /* Open panel */
 
 $('#notifTrigger, #notificationsTrigger, #notificationsTriggerMobile')
@@ -183,21 +188,21 @@ $(document).on('keyup', function (e) {
 
 /* Mark all as read */
 
-$('#markAllReadBtn').on('click', function () {
+// $('#markAllReadBtn').on('click', function () {
 
-  $.post('/api/notifications/mark-read')
+//   $.post('/api/notifications/mark-read')
 
-    .always(function () {
+//     .always(function () {
 
-      // Reload next time panel opens
-      notificationsLoaded = false;
+//       // Reload next time panel opens
+//       notificationsLoaded = false;
 
-      // Close the panel immediately
-      closeNotifications();
+//       // Close the panel immediately
+//       closeNotifications();
 
-    });
+//     });
 
-});
+// });
 
   /* ── 3. TEXT-SIZE ACCESSIBILITY TOGGLE ─────────────────── */
   var sizes = ['100%', '112%', '125%'];

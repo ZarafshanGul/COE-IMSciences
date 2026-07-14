@@ -362,27 +362,28 @@ img {
 .notif-card h4 {
   margin: 0 0 0.3rem;
   font-size: 0.95rem;
-  color: var(--texture-orange);
+  color: var(--secondary);
   font-weight: 700;
+  animation: textAnimation 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes textAnimation {
+  0%, 100% {
+    color: var(--secondary);
+    text-shadow: 0 0 5px rgba(253, 103, 54, 0.6), 0 0 10px rgba(253, 103, 54, 0.4);
+  }
+
+  50% {
+    color: white;
+    text-shadow: 0 0 10px rgba(220, 220, 220, 0.8);
+  }
+  
 }
 
 .notif-card p {
   margin: 0 0 0.4rem;
   font-size: 0.875rem;
-  color: var(--text-light);
-}
-
-.notif-attachment {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.8rem;
-  color: var(--secondary);
-  font-weight: 600;
-}
-
-.notif-attachment:hover {
-  color: var(--primary-dark);
+  color: var(--text-dark);
 }
 
 .notif-date {
@@ -400,6 +401,57 @@ img {
 body.notif-open {
   overflow: hidden;
 }
+
+/* Footer "Apply Now" button — glowing pulse, matches site's brand red */
+.notif-apply-btn {
+  position: relative;
+  background: var(--secondary);
+  color: #fff;
+}
+
+/* Notification panel — extra breathing room on small phones */
+@media (max-width: 480px) {
+  .notif-panel {
+    top: 100px;
+    width: 94vw;
+    max-height: 78vh;
+  }
+
+  .notif-panel-header,
+  .notif-panel-footer {
+    padding: 1rem 1.1rem;
+  }
+
+  .notif-panel-body {
+    padding: 0.25rem 1.1rem;
+  }
+}
+
+/* Make the newest (top) notification stand out */
+.notif-card:first-child {
+  position: relative;
+  border: 1px solid rgba(253, 103, 54, 0.35);
+  border-radius: 0.6rem;
+  padding: 1rem 1.1rem 1.1rem;
+  margin-bottom: 0.4rem;
+  background: rgba(253, 103, 54, 0.05);
+}
+
+.notif-card:first-child::before {
+  content: 'NEW';
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: var(--texture-orange);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.55rem;
+  border-radius: 50px;
+  box-shadow: 0 2px 6px rgba(253, 103, 54, 0.4);
+}
+
 
 /* ==========================================================
    HERO CAROUSEL

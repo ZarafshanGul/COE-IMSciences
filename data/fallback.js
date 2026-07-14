@@ -131,25 +131,37 @@ const allCourseCategories = [
   'AI Robotics',
 ];
 
-// ------ NOTIFICATIONS ----------------------------------------
+// ------ APPLICATIONS OPEN NOTIFICATIONS ----------------------------------------
 const notifications = [
   {
-    title: 'CoE Notice 2, March 18th, 2026',
-    message: 'Open the attachment to read the full document.',
-    attachmentName: 'CoE Notice 2, March 18th, 2026.pdf',
-    attachmentUrl: '/files/coe-notice-2-2026-03-18.pdf',
-    publishedAt: new Date('2026-03-18'),
+    title: 'Applications Are Now Open',
+    message: 'Applications for the Centre of Excellence courses at IMSciences (hub) are now open. Click below to apply before the deadline.',
+    // attachmentName: 'Apply Now',
+    // attachmentUrl: APPLY_LINK,
+    // publishedAt: new Date('2026-07-14'),
     isRead: false,
   },
-  {
-    title: 'CoE Notice 1, March 13th, 2026',
-    message: 'A new official CoE notice has been published. Open the attachment to read the full announcement.',
-    attachmentName: 'CoE Notice 1, March 13th, 2026.pdf',
-    attachmentUrl: '/files/coe-notice-1-2026-03-13.pdf',
-    publishedAt: new Date('2026-03-13'),
-    isRead: false,
-  },
-];
+]
+
+// ------ PREVIOUS NOTIFICATIONS ----------------------------------------
+// const notifications = [
+//   {
+//     title: 'CoE Notice 2, March 18th, 2026',
+//     message: 'Open the attachment to read the full document.',
+//     attachmentName: 'CoE Notice 2, March 18th, 2026.pdf',
+//     attachmentUrl: '/files/coe-notice-2-2026-03-18.pdf',
+//     publishedAt: new Date('2026-03-18'),
+//     isRead: false,
+//   },
+//   {
+//     title: 'CoE Notice 1, March 13th, 2026',
+//     message: 'A new official CoE notice has been published. Open the attachment to read the full announcement.',
+//     attachmentName: 'CoE Notice 1, March 13th, 2026.pdf',
+//     attachmentUrl: '/files/coe-notice-1-2026-03-13.pdf',
+//     publishedAt: new Date('2026-03-13'),
+//     isRead: false,
+//   },
+// ];
 
 // ------ FAQs -------------------------------------------------
 const faqs = [
@@ -308,7 +320,7 @@ const courseDetails = {
     tagline: 'Learn AI, Machine Learning, NLP, and Python while building real-world AI applications aligned with industry requirements.',
     about: 'This Artificial Intelligence programme provides practical, hands-on knowledge in machine learning, data processing, natural language processing, and AI application development. The course combines theory with real coding exercises, portfolio projects, and freelancing skills to prepare learners for careers in AI — from junior developer roles to independent freelance work on platforms like Fiverr and Upwork.',
     duration: '6 months with mandatory on-the-job training.',
-    prerequisites: 'English proficiency, Intermediate certificate, and Basic programming knowledge are preferred.',
+    prerequisites: 'English proficiency, Intermediate certificate Problem solving skills, and Computer programming knowledge.',
     learn: [
       'Artificial Intelligence fundamentals',
       'Python programming from scratch',
@@ -332,7 +344,7 @@ const courseDetails = {
     tagline: 'Master cloud platforms, virtualization, and DevOps fundamentals for the next generation of IT infrastructure.',
     about: 'The Cloud Engineering programme equips learners with practical skills to deploy, manage, and secure cloud-based systems using AWS, Microsoft Azure, and Linux. Through hands-on labs, real-world projects, and on-the-job training, students gain the expertise needed for entry-level cloud administrator and cloud engineer roles in today\'s digital-first organisations.',
     duration: '6 months with mandatory on-the-job training.',
-    prerequisites: 'Basic computer skills, English proficiency, and Intermediate certification.',
+    prerequisites: 'English proficiency, Intermediate certification, and Basic networking knowledge.',
     learn: [
       'Cloud Computing concepts, models & frameworks',
       'Amazon Web Services (AWS) fundamentals',
@@ -356,7 +368,7 @@ const courseDetails = {
     tagline: 'Protect systems and networks through ethical hacking, digital forensics, and security operations.',
     about: 'The Cybersecurity programme develops practical skills in system security, ethical hacking, vulnerability assessment, and cyber defence. Students work through real-world scenarios in a supervised lab environment, learning to think like both attackers and defenders. The programme aligns with NAVTTC competency standards and prepares learners for roles in security operations centres, penetration testing, and digital forensics.',
     duration: '6 months with mandatory on-the-job training.',
-    prerequisites: 'English proficiency, Intermediate certification and Basic programming knowledge are preferred.',
+    prerequisites: 'English proficiency and Intermediate certification. Preference for candidates with a computing background.',
     learn: [
       'Cybersecurity fundamentals & the CIA triad',
       'Networking & protocols (TCP/IP, DNS, HTTP)',
@@ -404,7 +416,7 @@ const courseDetails = {
     tagline: 'Develop professional motion graphics, animation, and visual storytelling skills using industry-standard creative tools.',
     about: 'The Creative Motion Design programme equips learners with professional animation, video production, motion graphics, and digital storytelling skills through project-based learning aligned with NAVTTC competency standards. Students build a strong portfolio while mastering tools like Adobe Creative Suite, Blender, and After Effects — preparing them for careers in media production, advertising, and digital content creation.',
     duration: '6 months with mandatory on-the-job training.',
-    prerequisites: 'English proficiency, Intermediate certification and Basic programming knowledge are preferred.',
+    prerequisites: 'English proficiency, Intermediate certification, Computer literacy and  Basic programming knowledge. Preference will be given to candidates with an aptitude and interest in creative arts.',
     learn: [
       'Visual Storytelling & Storyboarding — core modules',
       'Adobe Photoshop — photo editing & illustration',
