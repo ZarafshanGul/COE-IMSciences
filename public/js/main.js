@@ -134,57 +134,57 @@ function loadNotifications() {
     });
 }
 
-function openNotifications() {
-
-  $overlay.addClass('active');
-  $panel.addClass('active');
-
-  $('body').addClass('notif-open');
-
-  if (!notificationsLoaded) {
-    loadNotifications();
-  }
-}
-
-function closeNotifications() {
-
-  $overlay.removeClass('active');
-  $panel.removeClass('active');
-
-  $('body').removeClass('notif-open');
-}
-
-/* ── Auto-show notifications on homepage load ─────────────── */
-if (window.location.pathname === '/' || window.location.pathname === '/index') {
-  openNotifications();
-}
-
-/* Open panel */
-
-$('#notifTrigger, #notificationsTrigger, #notificationsTriggerMobile')
-  .on('click keypress', function (e) {
-
-    if (e.type === 'keypress' && e.which !== 13) {
-      return;
-    }
-
-    $('#mobileMenu').removeClass('open');
-
-    openNotifications();
-
-  });
-
-/* Close panel */
-
-$('#notifClose, #notifOverlay').on('click', closeNotifications);
-
-$(document).on('keyup', function (e) {
-
-  if (e.key === 'Escape') {
-    closeNotifications();
-  }
-
-});
+// function openNotifications() {
+//
+//   $overlay.addClass('active');
+//   $panel.addClass('active');
+//
+//   $('body').addClass('notif-open');
+//
+//   if (!notificationsLoaded) {
+//     loadNotifications();
+//   }
+// }
+//
+// function closeNotifications() {
+//
+//   $overlay.removeClass('active');
+//   $panel.removeClass('active');
+//
+//   $('body').removeClass('notif-open');
+// }
+//
+// /* ── Auto-show notifications on homepage load ─────────────── */
+// if (window.location.pathname === '/' || window.location.pathname === '/index') {
+//   openNotifications();
+// }
+//
+// /* Open panel */
+//
+// $('#notifTrigger, #notificationsTrigger, #notificationsTriggerMobile')
+//   .on('click keypress', function (e) {
+//
+//     if (e.type === 'keypress' && e.which !== 13) {
+//       return;
+//     }
+//
+//     $('#mobileMenu').removeClass('open');
+//
+//     openNotifications();
+//
+//   });
+//
+// /* Close panel */
+//
+// $('#notifClose, #notifOverlay').on('click', closeNotifications);
+//
+// $(document).on('keyup', function (e) {
+//
+//   if (e.key === 'Escape') {
+//     closeNotifications();
+//   }
+//
+// });
 
 /* Mark all as read */
 

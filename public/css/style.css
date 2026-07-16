@@ -398,7 +398,7 @@ img {
   border-top: 1px solid rgba(89, 86, 165, 0.15);
 }
 
-body.notif-open {
+/* body.notif-open {
   overflow: hidden;
 }
 
