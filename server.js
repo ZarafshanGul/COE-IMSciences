@@ -16,7 +16,7 @@ const app = express();
 // ==========================================
 // Global Google Form Link
 // ==========================================
-app.locals.applyFormLink = 'https://docs.google.com/forms/d/e/1FAIpQLSeJuTb9TJjKi3Fqmkk7zcA_XIxighZEKLOMkvmLRyi0dkmhxQ/viewform?usp=publish-editor';
+app.locals.applyFormLink = '#';
 
 // Kick off the DB connection (non-blocking - pages fall back to static data
 // until the connection resolves, which matters most on serverless cold starts).

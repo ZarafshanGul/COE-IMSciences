@@ -7,7 +7,7 @@
 
 // ------ APPLY LINK ------------------------------------------
 // Replace this URL with your actual Google Form application link.
-const APPLY_LINK = 'https://docs.google.com/forms/d/e/1FAIpQLSeJuTb9TJjKi3Fqmkk7zcA_XIxighZEKLOMkvmLRyi0dkmhxQ/viewform?usp=publish-editor';
+const APPLY_LINK = '#';
 
 // ------ CENTERS ---------------------------------------------
 const centers = [
@@ -416,7 +416,7 @@ const courseDetails = {
     tagline: 'Develop professional motion graphics, animation, and visual storytelling skills using industry-standard creative tools.',
     about: 'The Creative Motion Design programme equips learners with professional animation, video production, motion graphics, and digital storytelling skills through project-based learning aligned with NAVTTC competency standards. Students build a strong portfolio while mastering tools like Adobe Creative Suite, Blender, and After Effects — preparing them for careers in media production, advertising, and digital content creation.',
     duration: '6 months with mandatory on-the-job training.',
-    prerequisites: 'English proficiency, Intermediate certification, Computer literacy and  Basic programming knowledge. Preference will be given to candidates with an aptitude and interest in creative arts.',
+    prerequisites: 'English proficiency, Intermediate certification, Computer literate and  Basic programming knowledge. Preference will be given to candidates with an aptitude and interest in creative arts.',
     learn: [
       'Visual Storytelling & Storyboarding — core modules',
       'Adobe Photoshop — photo editing & illustration',
