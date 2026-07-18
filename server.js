@@ -13,6 +13,8 @@ const pageController = require('./controllers/pageController');
 
 const app = express();
 
+app.set('trust proxy', true);
+
 // ==========================================
 // Global Google Form Link
 // ==========================================

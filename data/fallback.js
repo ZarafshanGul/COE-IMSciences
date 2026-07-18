@@ -252,8 +252,8 @@ const heroSlides = [
     subtitle: 'Funded by the European Union and German Government\nImplemented by British Council Pakistan',
     layout: 'two-col',
     images: [
-      { src: '/images/coe-slider/coe_01.png', mobile: true ,alt: 'Centre of Excellence for digital and high-tech skills - Image 1' },
-      { src: '/images/coe-slider/coe_02.png',mobile: true ,alt: 'Centre of Excellence for digital and high-tech skills - Image 2' },
+      { src: '/images/coe-slider/coe_01.webp', mobile: true ,alt: 'Centre of Excellence for digital and high-tech skills - Image 1' },
+      { src: '/images/coe-slider/coe_02.webp',mobile: true ,alt: 'Centre of Excellence for digital and high-tech skills - Image 2' },
     ],
   },
   {
@@ -261,9 +261,9 @@ const heroSlides = [
     subtitle: '',
     layout: 'one-plus-two',
     images: [
-      { src: '/images/second-slider/second_slider_01.png', mobile: true, alt: 'Trainings in High Tech Digital Skills to 1500 Women from KP & GB - Image 1' },
-      { src: '/images/second-slider/second_slider_02.jpeg', mobile: true,  alt: 'Trainings in High Tech Digital Skills to 1500 Women from KP & GB - Image 2' },
-      { src: '/images/second-slider/second_slider_03.png', mobile: false, alt: 'Trainings in High Tech Digital Skills to 1500 Women from KP & GB - Image 3' },
+      { src: '/images/second-slider/second_slider_01.webp', mobile: true, alt: 'Trainings in High Tech Digital Skills to 1500 Women from KP & GB - Image 1' },
+      { src: '/images/second-slider/second_slider_02.webp', mobile: true,  alt: 'Trainings in High Tech Digital Skills to 1500 Women from KP & GB - Image 2' },
+      { src: '/images/second-slider/second_slider_03.webp', mobile: false, alt: 'Trainings in High Tech Digital Skills to 1500 Women from KP & GB - Image 3' },
     ],
   },
   {
@@ -271,9 +271,9 @@ const heroSlides = [
     subtitle: '',
     layout: 'one-plus-two',
     images: [
-      { src: '/images/classroom-lab/classroom_1.png', mobile: false, alt: 'Modern Computer Labs & Smart Classrooms - Image 1' },
-      { src: '/images/classroom-lab/lab.png', mobile: true, alt: 'Modern Computer Labs & Smart Classrooms - Image 2' },
-      { src: '/images/digital-library-robot/robot-crp.jpeg', mobile: false, alt: 'Modern Computer Labs & Smart Classrooms - Image 3' },
+      { src: '/images/classroom-lab/classroom_1.webp', mobile: false, alt: 'Modern Computer Labs & Smart Classrooms - Image 1' },
+      { src: '/images/classroom-lab/lab.webp', mobile: true, alt: 'Modern Computer Labs & Smart Classrooms - Image 2' },
+      { src: '/images/digital-library-robot/robot-crp.webp', mobile: false, alt: 'Modern Computer Labs & Smart Classrooms - Image 3' },
     ],
   },
   {
@@ -281,9 +281,9 @@ const heroSlides = [
     subtitle: '',
     layout: 'one-plus-two',
     images: [
-      { src: '/images/library-daycare/daycare_02.jpeg', mobile: true, alt: 'Day Care Centre - Image 1' },
-      { src: '/images/library-daycare/daycare_04.jpeg', mobile: false, alt: 'Day Care Centre - Image 2' },
-      { src: '/images/library-daycare/daycare_03.jpeg', mobile: true, alt: 'Day Care Centre - Image 3' },
+      { src: '/images/library-daycare/daycare_02.webp', mobile: true, alt: 'Day Care Centre - Image 1' },
+      { src: '/images/library-daycare/daycare_04.webp', mobile: false, alt: 'Day Care Centre - Image 2' },
+      { src: '/images/library-daycare/daycare_03.webp', mobile: true, alt: 'Day Care Centre - Image 3' },
     ],
   },
   {
@@ -291,8 +291,8 @@ const heroSlides = [
     subtitle: '',
     layout: 'two-col',
     images: [
-      { src: '/images/digital-library-robot/digital_library_1.png', mobile: true,  alt: 'Digital Library - Image 1' },
-      { src: '/images/digital-library-robot/digital_library_2.png', mobile: false, alt: 'Digital Library - Image 2' },
+      { src: '/images/digital-library-robot/digital_library_1.webp', mobile: true,  alt: 'Digital Library - Image 1' },
+      { src: '/images/digital-library-robot/digital_library_2.webp', mobile: false, alt: 'Digital Library - Image 2' },
     ],
   },
   {
@@ -300,9 +300,9 @@ const heroSlides = [
     subtitle: '',
     layout: 'one-plus-two',
     images: [
-      { src: '/images/incubation-centre/incubation.png', mobile: true, alt: 'Incubation Centre and Job Placement Office - Image 1' },
-      { src: '/images/incubation-centre/job_placement_1.png', mobile: true, alt: 'Incubation Centre and Job Placement Office - Image 2' },
-      { src: '/images/incubation-centre/job_placement_2.png', mobile: false, alt: 'Incubation Centre and Job Placement Office - Image 3' },
+      { src: '/images/incubation-centre/incubation.webp', mobile: true, alt: 'Incubation Centre and Job Placement Office - Image 1' },
+      { src: '/images/incubation-centre/job_placement_1.webp', mobile: true, alt: 'Incubation Centre and Job Placement Office - Image 2' },
+      { src: '/images/incubation-centre/job_placement_2.webp', mobile: false, alt: 'Incubation Centre and Job Placement Office - Image 3' },
     ],
   },
 ];
