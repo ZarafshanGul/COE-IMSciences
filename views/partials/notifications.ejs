@@ -1,23 +1,101 @@
 <!-- Blur overlay -->
-<!-- <div class="notif-overlay" id="notifOverlay"></div> -->
+<div class="notif-overlay" id="notifOverlay"></div>
 
-<!-- Notification panel -->
-<!-- <div class="notif-panel" id="notifPanel" role="dialog" aria-modal="true" aria-label="Notifications">
+<!-- Applications-Open promo popup -->
+<div class="notif-panel" id="notifPanel" role="dialog" aria-modal="true" aria-label="Applications are now open">
 
-  <div class="notif-panel-header">
-    <h3>Notifications</h3>
-    <button class="notif-close" id="notifClose" aria-label="Close notifications">&times;</button>
-  </div>
+  <button class="notif-close" id="notifClose" aria-label="Close">&times;</button>
 
-  <div class="notif-panel-body" id="notifList">
-    <p class="text-center py-3" style="color:var(--text-faint);">Loading notifications…</p>
+  <!-- <div class="notif-logo-strip">
+    <img src="/images/logo-strip.png" alt="Partner Logos" class="notif-logo-main img-fluid" />
+
+    <div class="notif-logo-partners">
+      <img src="/images/partner-logos/tevta.png" alt="TEVTA" class="notif-partner-logo" />
+      <img src="/images/partner-logos/kiu.png" alt="KIU" class="notif-partner-logo" />
+      <img src="/images/partner-logos/dtse_gb.jpeg" alt="DTSE GB" class="notif-partner-logo" />
+      <img src="/images/partner-logos/ims.png" alt="IMS" class="notif-partner-logo" />
+    </div>
+  </div> -->
+
+  <div class="notif-promo-body">
+
+    <span class="notif-badge">Centre of Excellence (CoE) &mdash; IMSciences</span>
+
+    <h2 class="notif-promo-title">Applications Are <span>Now Open!</span></h2>
+
+    <p class="notif-promo-text">
+      Ready to build industry-relevant skills in emerging technologies? Applications for the second batch at CoE IMSciences are now open.
+    </p>
+
+    <div class="notif-trades-box">
+      <span class="notif-trades-label">Available Courses</span>
+      <ul class="notif-trades-list">
+        <li>
+          <span class="notif-trade-check">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+            </svg>
+          </span>
+          Artificial Intelligence
+        </li>
+        <li>
+          <span class="notif-trade-check">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+            </svg>
+          </span>
+          Cloud Engineering
+        </li>
+        <li>
+          <span class="notif-trade-check">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+            </svg>
+          </span>
+          Cybersecurity
+        </li>
+        <li>
+          <span class="notif-trade-check">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+            </svg>
+          </span>
+          E-Commerce
+        </li>
+        <li>
+          <span class="notif-trade-check">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+            </svg>
+          </span>
+          Creative Motion Design
+        </li>
+      </ul>
+    </div>
+
   </div>
 
   <div class="notif-panel-footer">
-    <a href="<%= applyFormLink %>" target="_blank" rel="noopener noreferrer"
-      class="btn btn-brand w-100 py-2 fw-bold notif-apply-btn" id="notifApplyBtn">
+
+    <div class="notif-footer-info">
+      <span class="notif-seats-tag">
+        All courses are fully funded for female candidates; however, there is a subsidised fee for male candidates subject to seat availability.
+      </span>
+
+      <!-- <p class="notif-admission-note">
+        All courses are fully funded for female candidates; however, there is a subsidised fee for male candidates.
+      </p> -->
+
+      <a href="/faq" class="notif-faq-link">
+        Frequently Asked Questions
+      </a>
+    </div>
+
+    <a href="<%= applyFormLink %>" target="_blank" rel="noopener noreferrer" class="btn btn-brand notif-apply-btn"
+      id="notifApplyBtn">
       Apply Now
     </a>
+
   </div>
 
-</div> -->
+</div>

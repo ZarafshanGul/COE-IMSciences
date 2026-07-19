@@ -7,7 +7,7 @@
 
 // ------ APPLY LINK ------------------------------------------
 // Replace this URL with your actual Google Form application link.
-const APPLY_LINK = '#';
+const APPLY_LINK = 'https://forms.gle/zwhmB7dya9mW47xp7';
 
 // ------ CENTERS ---------------------------------------------
 const centers = [

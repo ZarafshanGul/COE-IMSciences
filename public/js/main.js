@@ -49,160 +49,48 @@ if ($.fn.slick) {
   }
 
 }
-  /* =========================================================
-   Notifications panel (blurred overlay)
+/* =========================================================
+   Applications-Open promo popup (blurred overlay)
    ========================================================= */
 
 var $overlay = $('#notifOverlay');
 var $panel = $('#notifPanel');
-var $list = $('#notifList');
-var notificationsLoaded = false;
 
-function formatDate(dateStr) {
-  var d = new Date(dateStr);
-  if (isNaN(d.getTime())) return '';
+function openNotifications() {
+  $overlay.addClass('active');
+  $panel.addClass('active');
+  $('body').addClass('notif-open');
+}
 
-  return d.toLocaleDateString('en-PK', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric'
+function closeNotifications() {
+  $overlay.removeClass('active');
+  $panel.removeClass('active');
+  $('body').removeClass('notif-open');
+}
+
+/* Open popup */
+$('#notifTrigger, #notificationsTrigger, #notificationsTriggerMobile')
+  .on('click keypress', function (e) {
+    if (e.type === 'keypress' && e.which !== 13) {
+      return;
+    }
+    $('#mobileMenu').removeClass('open');
+    openNotifications();
   });
-}
 
-function renderNotifications(items) {
+/* Close popup */
+$('#notifClose, #notifOverlay').on('click', closeNotifications);
 
-  if (!items || !items.length) {
-    $list.html(
-      '<p class="notif-loading">You\'re all caught up — no notifications.</p>'
-    );
-    return;
+$(document).on('keyup', function (e) {
+  if (e.key === 'Escape') {
+    closeNotifications();
   }
+});
 
-  var html = items.map(function (n) {
-
-    return (
-      '<div class="notif-card">' +
-
-      '<h4>' + $('<span>').text(n.title).html() + '</h4>' +
-
-      '<p>' + $('<span>').text(n.message).html() + '</p>' +
-
-      (n.attachmentUrl
-        ? '<a class="notif-attachment" href="' +
-          n.attachmentUrl +
-          '" target="_blank" rel="noopener noreferrer">' +
-          $('<span>').text(n.attachmentName || 'Document').html() +
-          '</a>'
-        : '') +
-
-      // '<span class="notif-date">' +
-      // formatDate(n.publishedAt) +
-      // '</span>' +
-
-      '</div>'
-    );
-
-  }).join('');
-
-  $list.html(html);
+/* Show every time someone opens the site / visits the homepage */
+if (window.location.pathname === '/' || window.location.pathname === '/index') {
+  openNotifications();
 }
-
-function loadNotifications() {
-
-  $list.html(
-    '<p class="notif-loading">Loading notifications…</p>'
-  );
-
-  $.getJSON('/api/notifications')
-
-    .done(function (res) {
-
-      var items = (res && res.notifications) || [];
-
-      renderNotifications(items);
-
-      notificationsLoaded = true;
-
-    })
-
-    .fail(function () {
-
-      $list.html(
-        '<p class="notif-loading">Could not load notifications.</p>'
-      );
-
-    });
-}
-
-// function openNotifications() {
-//
-//   $overlay.addClass('active');
-//   $panel.addClass('active');
-//
-//   $('body').addClass('notif-open');
-//
-//   if (!notificationsLoaded) {
-//     loadNotifications();
-//   }
-// }
-//
-// function closeNotifications() {
-//
-//   $overlay.removeClass('active');
-//   $panel.removeClass('active');
-//
-//   $('body').removeClass('notif-open');
-// }
-//
-// /* ── Auto-show notifications on homepage load ─────────────── */
-// if (window.location.pathname === '/' || window.location.pathname === '/index') {
-//   openNotifications();
-// }
-//
-// /* Open panel */
-//
-// $('#notifTrigger, #notificationsTrigger, #notificationsTriggerMobile')
-//   .on('click keypress', function (e) {
-//
-//     if (e.type === 'keypress' && e.which !== 13) {
-//       return;
-//     }
-//
-//     $('#mobileMenu').removeClass('open');
-//
-//     openNotifications();
-//
-//   });
-//
-// /* Close panel */
-//
-// $('#notifClose, #notifOverlay').on('click', closeNotifications);
-//
-// $(document).on('keyup', function (e) {
-//
-//   if (e.key === 'Escape') {
-//     closeNotifications();
-//   }
-//
-// });
-
-/* Mark all as read */
-
-// $('#markAllReadBtn').on('click', function () {
-
-//   $.post('/api/notifications/mark-read')
-
-//     .always(function () {
-
-//       // Reload next time panel opens
-//       notificationsLoaded = false;
-
-//       // Close the panel immediately
-//       closeNotifications();
-
-//     });
-
-// });
 
   /* ── 3. TEXT-SIZE ACCESSIBILITY TOGGLE ─────────────────── */
   var sizes = ['100%', '112%', '125%'];

@@ -18,7 +18,7 @@ app.set('trust proxy', true);
 // ==========================================
 // Global Google Form Link
 // ==========================================
-app.locals.applyFormLink = '#';
+app.locals.applyFormLink = 'https://forms.gle/zwhmB7dya9mW47xp7';
 
 // Kick off the DB connection (non-blocking - pages fall back to static data
 // until the connection resolves, which matters most on serverless cold starts).
