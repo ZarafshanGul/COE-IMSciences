@@ -53,44 +53,44 @@ if ($.fn.slick) {
    Applications-Open promo popup (blurred overlay)
    ========================================================= */
 
-var $overlay = $('#notifOverlay');
-var $panel = $('#notifPanel');
+// var $overlay = $('#notifOverlay');
+// var $panel = $('#notifPanel');
 
-function openNotifications() {
-  $overlay.addClass('active');
-  $panel.addClass('active');
-  $('body').addClass('notif-open');
-}
+// function openNotifications() {
+//   $overlay.addClass('active');
+//   $panel.addClass('active');
+//   $('body').addClass('notif-open');
+// }
 
-function closeNotifications() {
-  $overlay.removeClass('active');
-  $panel.removeClass('active');
-  $('body').removeClass('notif-open');
-}
+// function closeNotifications() {
+//   $overlay.removeClass('active');
+//   $panel.removeClass('active');
+//   $('body').removeClass('notif-open');
+// }
 
-/* Open popup */
-$('#notifTrigger, #notificationsTrigger, #notificationsTriggerMobile')
-  .on('click keypress', function (e) {
-    if (e.type === 'keypress' && e.which !== 13) {
-      return;
-    }
-    $('#mobileMenu').removeClass('open');
-    openNotifications();
-  });
+// /* Open popup */
+// $('#notifTrigger, #notificationsTrigger, #notificationsTriggerMobile')
+//   .on('click keypress', function (e) {
+//     if (e.type === 'keypress' && e.which !== 13) {
+//       return;
+//     }
+//     $('#mobileMenu').removeClass('open');
+//     openNotifications();
+//   });
 
-/* Close popup */
-$('#notifClose, #notifOverlay').on('click', closeNotifications);
+// /* Close popup */
+// $('#notifClose, #notifOverlay').on('click', closeNotifications);
 
-$(document).on('keyup', function (e) {
-  if (e.key === 'Escape') {
-    closeNotifications();
-  }
-});
+// $(document).on('keyup', function (e) {
+//   if (e.key === 'Escape') {
+//     closeNotifications();
+//   }
+// });
 
-/* Show every time someone opens the site / visits the homepage */
-if (window.location.pathname === '/' || window.location.pathname === '/index') {
-  openNotifications();
-}
+// /* Show every time someone opens the site / visits the homepage */
+// if (window.location.pathname === '/' || window.location.pathname === '/index') {
+//   openNotifications();
+// }
 
   /* ── 3. TEXT-SIZE ACCESSIBILITY TOGGLE ─────────────────── */
   var sizes = ['100%', '112%', '125%'];
