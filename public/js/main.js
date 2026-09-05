@@ -92,6 +92,65 @@ if ($.fn.slick) {
 //   openNotifications();
 // }
 
+/* =========================================================
+   Skardu Admissions Popup
+========================================================= */
+
+var $skarduOverlay = $('#skarduNotifOverlay');
+
+var $skarduPanel = $('#skarduNotifPanel');
+
+function openSkarduNotification() {
+
+  $skarduOverlay.addClass('active');
+
+  $skarduPanel.addClass('active');
+
+  $('body').addClass('skardu-notif-open');
+
+}
+
+function closeSkarduNotification() {
+
+  $skarduOverlay.removeClass('active');
+
+  $skarduPanel.removeClass('active');
+
+  $('body').removeClass('skardu-notif-open');
+
+}
+
+
+/* Close popup */
+
+$('#skarduNotifClose, #skarduNotifOverlay')
+  .on('click', closeSkarduNotification);
+
+
+/* Close with Escape */
+
+$(document).on('keyup', function (e) {
+
+  if (e.key === 'Escape') {
+
+    closeSkarduNotification();
+
+  }
+
+});
+
+
+/* Show popup automatically on homepage */
+
+if (
+  window.location.pathname === '/' ||
+  window.location.pathname === '/index'
+) {
+
+  openSkarduNotification();
+
+}
+
   /* ── 3. TEXT-SIZE ACCESSIBILITY TOGGLE ─────────────────── */
   var sizes = ['100%', '112%', '125%'];
   var sizeStep = parseInt(localStorage.getItem('coeTextStep') || '0', 10);
