@@ -50,105 +50,46 @@ if ($.fn.slick) {
 
 }
 /* =========================================================
-   Applications-Open promo popup (blurred overlay)
+  Spoke Admissions popup (blurred overlay)
    ========================================================= */
 
-// var $overlay = $('#notifOverlay');
-// var $panel = $('#notifPanel');
+var $notifOverlay = $('#notifOverlay');
+var $notifPanel = $('#notifPanel');
 
-// function openNotifications() {
-//   $overlay.addClass('active');
-//   $panel.addClass('active');
-//   $('body').addClass('notif-open');
-// }
-
-// function closeNotifications() {
-//   $overlay.removeClass('active');
-//   $panel.removeClass('active');
-//   $('body').removeClass('notif-open');
-// }
-
-// /* Open popup */
-// $('#notifTrigger, #notificationsTrigger, #notificationsTriggerMobile')
-//   .on('click keypress', function (e) {
-//     if (e.type === 'keypress' && e.which !== 13) {
-//       return;
-//     }
-//     $('#mobileMenu').removeClass('open');
-//     openNotifications();
-//   });
-
-// /* Close popup */
-// $('#notifClose, #notifOverlay').on('click', closeNotifications);
-
-// $(document).on('keyup', function (e) {
-//   if (e.key === 'Escape') {
-//     closeNotifications();
-//   }
-// });
-
-// /* Show every time someone opens the site / visits the homepage */
-// if (window.location.pathname === '/' || window.location.pathname === '/index') {
-//   openNotifications();
-// }
-
-/* =========================================================
-   Skardu Admissions Popup
-========================================================= */
-
-var $skarduOverlay = $('#skarduNotifOverlay');
-
-var $skarduPanel = $('#skarduNotifPanel');
-
-function openSkarduNotification() {
-
-  $skarduOverlay.addClass('active');
-
-  $skarduPanel.addClass('active');
-
-  $('body').addClass('skardu-notif-open');
-
+function openNotifications() {
+  $notifOverlay.addClass('active');
+  $notifPanel.addClass('active');
+  $('body').addClass('notif-open');
 }
 
-function closeSkarduNotification() {
-
-  $skarduOverlay.removeClass('active');
-
-  $skarduPanel.removeClass('active');
-
-  $('body').removeClass('skardu-notif-open');
-
+function closeNotifications() {
+  $notifOverlay.removeClass('active');
+  $notifPanel.removeClass('active');
+  $('body').removeClass('notif-open');
 }
 
+/* Open popup (nav trigger) */
+$('#notifTrigger, #notificationsTrigger, #notificationsTriggerMobile')
+  .on('click keypress', function (e) {
+    if (e.type === 'keypress' && e.which !== 13) {
+      return;
+    }
+    $('#mobileMenu').removeClass('open');
+    openNotifications();
+  });
 
 /* Close popup */
-
-$('#skarduNotifClose, #skarduNotifOverlay')
-  .on('click', closeSkarduNotification);
-
-
-/* Close with Escape */
+$('#notifClose, #notifOverlay').on('click', closeNotifications);
 
 $(document).on('keyup', function (e) {
-
   if (e.key === 'Escape') {
-
-    closeSkarduNotification();
-
+    closeNotifications();
   }
-
 });
 
-
-/* Show popup automatically on homepage */
-
-if (
-  window.location.pathname === '/' ||
-  window.location.pathname === '/index'
-) {
-
-  openSkarduNotification();
-
+/* Show every time someone opens the site / visits the homepage */
+if (window.location.pathname === '/' || window.location.pathname === '/index') {
+  openNotifications();
 }
 
   /* ── 3. TEXT-SIZE ACCESSIBILITY TOGGLE ─────────────────── */

@@ -64,6 +64,19 @@ exports.renderFaq = async (req, res) => {
   });
 };
 
+exports.renderSpokePage = (req, res, next) => {
+  const spoke = fallback.spokePages[req.params.spoke];
+  if (!spoke) {
+    return next();
+  }
+  res.render('spoke-admissions', {
+    pageTitle:   `${spoke.title} | Admissions | COE IMSciences`,
+    activeNav:   '',
+    spoke,
+    footerSpokes: fallback.footerSpokes,
+  });
+};
+
 exports.renderLogin = async (req, res) => {
   res.render('login', {
     pageTitle:   'Apply / Login | COE IMSciences',

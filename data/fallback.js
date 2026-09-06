@@ -59,6 +59,7 @@ const footerSpokes = [
     institute: 'Government Technical and Vocational Training Centre for Women, KTS Haripur',
     address: 'Adnan Chowk, Sector-4, Khalabat Township, Haripur, KP',
     mapLink: 'https://maps.app.goo.gl/7XwSBaiTbzmjNta78',
+    page: 'haripur',
   },
   {
     name: 'D.I.Khan',
@@ -77,6 +78,7 @@ const footerSpokes = [
     institute: 'Government Polytechnic Institute, Torghu, Skardu',
     address: 'Shigar Road, Torghu-Pain, Skardu, Gilgit-Baltistan',
     mapLink: 'https://maps.app.goo.gl/JA5fahqn3934AQ1x6',
+    page: 'skardu',
   },
 ];
 
@@ -505,6 +507,87 @@ const courseDetails = {
   },
 };
 
+// ------ SPOKE ADMISSIONS PAGES --------------------------------
+// Full standalone admissions pages for spoke centres currently
+// running open applications. Linked from the notifications popup
+// ("View Full Details") and from the footer spokes grid.
+const spokePages = {
+
+  // ── SKARDU ──────────────────────────────────────────────────
+  skardu: {
+    slug: 'skardu',
+    heroImage: '/images/skardu-admissions.jpg',
+    heroImageAlt: 'Centre of Excellence, Government Polytechnic Institute, Skardu — Admissions Announcement',
+    title: 'Government Polytechnic Institute, Torghu, Skardu',
+    tagline: 'Directorate of Technical Education and Skill Development, Gilgit-Baltistan, with support from the EU TVET Sector Support Programme, invites applications for fully funded 6-month professional training programmes at the Centre of Excellence, Government Polytechnic Institute, Skardu.',
+    courses: [
+      'Cyber Security',
+      'ERP Management',
+    ],
+    eligibilityGroups: [
+      {
+        title: 'Cyber Security',
+        items: [
+          'Female candidates with Gilgit-Baltistan domicile',
+          'FSc (Pre-Engineering) or I.Com or ICS',
+          'Basic computer knowledge',
+        ],
+      },
+      {
+        title: 'ERP Management',
+        items: [
+          'Female candidates with Gilgit-Baltistan domicile',
+          'FSc (Pre-Engineering) or I.Com or ICS',
+          'Interest in digital platforms and online business',
+        ],
+      },
+    ],
+    note: 'Priority will be given to deserving women, particularly those who are orphaned or living with disabilities.',
+    contactEmail: 'asimali@gbdtesd.gov.pk',
+    contactPhone: null,
+    address: 'Shigar Road, Torghu-Pain, Skardu, Gilgit-Baltistan',
+    mapLink: 'https://maps.app.goo.gl/JA5fahqn3934AQ1x6',
+    applyLink: 'https://forms.gle/jBY3jdBfJU2HsxaJ7',
+    deadline: null,
+    registrationsOpen: true,
+  },
+
+  // ── HARIPUR ─────────────────────────────────────────────────
+  haripur: {
+    slug: 'haripur',
+    heroImage: '/images/haripur-admissions.jpeg',
+    heroImageAlt: 'Government Technical and Vocational Training Centre for Women, KTS Haripur — Admissions Announcement',
+    title: 'Government Technical and Vocational Training Centre for Women, KTS Haripur',
+    tagline: 'The Khyber Pakhtunkhwa Technical Education & Vocational Training Authority (KP-TEVTA), with the support of the TVET Sector Support Programme (TVET SSP), invites applications for the following free training courses offered through the Centre of Excellence at the Gtvc (Women) KTS, Haripur.',
+    courses: [
+      'Web Development',
+      'E-Commerce',
+      'Digital Marketing and Content Creation',
+    ],
+    eligibilityGroups: [
+      {
+        title: 'Eligibility Criteria',
+        items: [
+          'Female candidates having Domicile of Khyber Pakhtunkhwa / Merged District',
+          'Basic computer knowledge/skills is mandatory',
+          'Age limit: 18 to 40 years',
+          'Minimum qualification: Matric with computer skills, preferably Intermediate',
+          'Female candidates with disabilities are encouraged to apply',
+          'Selection of candidates will be made through interview',
+        ],
+      },
+    ],
+    note: 'Preference will be given to female candidates belonging to District Haripur of Khyber Pakhtunkhwa.',
+    contactEmail: 'Admnssvtiwkts@gmail.com',
+    contactPhone: '0995-619936',
+    address: 'Govt. Technical & Vocational Centre (Women), near Civil Hospital, Utman Chowk, Sector#4, KTS, Haripur',
+    mapLink: 'https://maps.app.goo.gl/7XwSBaiTbzmjNta78',
+    applyLink: 'https://forms.gle/MstEoJEr6WCAWZtP8',
+    deadline: '15th September, 2026',
+    registrationsOpen: true,
+  },
+};
+
 // ─────────────────────────────────────────────────────────────
 module.exports = {
   APPLY_LINK,
@@ -520,4 +603,5 @@ module.exports = {
   spokeInstitutes,
   heroSlides,
   courseDetails,
+  spokePages,
 };

@@ -113,6 +113,14 @@
               <p class="spoke-footer-addr">
                 <%= spoke.address %>
               </p>
+              <% if (spoke.page) { %>
+                <a href="/<%= spoke.page %>" class="spoke-footer-link d-block mb-1">
+                  Admissions open — view details
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
+                    <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
+                  </svg>
+                </a>
+              <% } %>
               <a href="<%= spoke.mapLink %>" target="_blank" rel="noopener" class="spoke-footer-link">
                 Get directions
                 <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12">

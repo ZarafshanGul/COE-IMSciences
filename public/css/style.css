@@ -210,6 +210,30 @@ img {
   background-color: var(--purple) !important;
 }
 
+.navbar-purple .dropdown-toggle,
+.navbar-purple .dropdown-toggle:hover,
+.navbar-purple .dropdown-toggle:focus,
+.navbar-purple .dropdown-toggle:active,
+.navbar-purple .dropdown-toggle.show {
+  color: #fff !important;
+}
+
+.navbar-purple .dropdown-menu {
+  background-color: var(--purple);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.navbar-purple .dropdown-item {
+  color: #fff;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.navbar-purple .dropdown-item:hover,
+.navbar-purple .dropdown-item:focus {
+  color: var(--secondary);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 /* Nav link colours + active */
 .navbar-purple .navbar-nav .nav-link {
   color: rgba(255, 255, 255, 0.88);
@@ -272,7 +296,12 @@ img {
   color: #fff;
 }
 
-/* ── Applications-Open Promo Popup ────────────────────────── */
+/* =========================================================
+   SPOKE ADMISSIONS POPUP (used for all spoke notifications —
+   currently Skardu + Haripur — switchable via tabs)
+========================================================= */
+
+/* Overlay */
 .notif-overlay {
   position: fixed;
   inset: 0;
@@ -290,308 +319,29 @@ img {
   visibility: visible;
 }
 
-.notif-panel {
+.notif-overlay-tabs {
   position: fixed;
-  top: 50%;
+  top: calc(50% - min(36vh, 21rem) - 3.5rem);
   left: 50%;
-  transform: translate(-50%, -48%);
-  width: min(42rem, 94vw);
-  max-height: 88vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  background: linear-gradient(
-    135deg,
-    var(--purple) 0%,
-    var(--primary) 18%,
-    var(--primary) 75%,
-    var(--secondary) 100%
-  );
-  border-radius: 1.25rem;
-  box-shadow: 0 40px 80px -16px rgba(31, 31, 31, 0.4);
-  z-index: 1065;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  animation: notifPanelGlow 2.4s ease-in-out infinite;
-}
+  z-index: 1066;
 
-.notif-panel.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%);
-}
-
-@keyframes notifPanelGlow {
-  0% {
-    box-shadow: 0 40px 80px -16px rgba(31, 31, 31, 0.4), 0 0 0 0 rgba(255, 45, 46, 0.45);
-  }
-  70% {
-    box-shadow: 0 40px 80px -16px rgba(31, 31, 31, 0.4), 0 0 0 14px rgba(255, 45, 46, 0);
-  }
-  100% {
-    box-shadow: 0 40px 80px -16px rgba(31, 31, 31, 0.4), 0 0 0 0 rgba(255, 45, 46, 0);
-  }
-}
-
-.notif-close {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  background: none;
-  border: none;
-  color: var(--secondary);
-  font-size: 2rem;
-  line-height: 1;
-  padding: 0;
-  cursor: pointer;
-  z-index: 5;
-  transition: color 0.15s ease;
-}
-
-.notif-close:hover {
-  transform: scale(1.3);
-}
-
-.notif-promo-body {
-  padding: 1.5rem 1.75rem 0.5rem;
-  color: var(--text-dark);
-  text-align: center;
-}
-
-.notif-promo-title {
-  font-size: 1.7rem;
-  font-weight: 800;
-  line-height: 1.25;
-  margin-bottom: 0.75rem;
-  color: var(--secondary);
-}
-
-.notif-promo-title span {
-  color: var(--secondary);
-}
-
-.notif-promo-subtitle {
-  display: block;
-  margin-top: 0.3rem;
-  color: var(--white) !important;
-  font-size: 0.7em;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.notif-promo-text {
-  font-size: 0.92rem;
-  color: var(--text-light);
-  max-width: 34rem;
-  margin: 0 auto 1.4rem;
-}
-
-.notif-trades-box {
-  position: relative;
-  border: 1px solid rgba(31, 31, 31, 0.15);
-  border-radius: 0.85rem;
-  padding: 1.4rem 1.25rem 1rem;
-  margin-bottom: 0.5rem;
-  text-align: left;
-  background: rgba(255, 255, 255, 0.55);
-}
-
-.notif-trades-label {
-  position: absolute;
-  top: -0.65rem;
-  left: 1.1rem;
-  background: var(--secondary);
-  color: var(--white);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.65rem;
-  border-radius: 50px;
-}
-
-.notif-trades-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.6rem 1rem;
-}
-
-.notif-trades-list li {
   display: flex;
-  align-items: center;
   gap: 0.5rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-faint);
-}
 
-.notif-trade-check {
-  flex-shrink: 0;
-  width: 1.4rem;
-  height: 1.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--secondary);
-  color: var(--white);
-  border-radius: 50%;
-}
-
-.notif-panel-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.25rem 1.75rem;
-  margin-top: 1rem;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 0 0 1.25rem 1.25rem;
-}
-
-.notif-faq-link {
-  display: inline-block;
-  width: fit-content;
-  margin-top: 0.15rem;
-  color: var(--secondary);
-  font-size: 0.82rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: color 0.15s ease;
-}
-
-.notif-faq-link:hover {
-  color: var(--secondary);
-  text-decoration: underline;
-  transform: scale(1.05);
-}
-
-/* Apply Now — frosted glass look using your accordion tokens */
-.notif-apply-btn {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  padding: 0.7rem 1.9rem !important;
-  border-radius: 50px !important;
-  background: var(--secondary) !important;
-  color: var(--white) !important;
-  border: 1px solid var(--bs-accordion-border-color) !important;
-  font-weight: 800 !important;
-  font-size: 0.95rem;
-  text-decoration: none !important;
-  white-space: nowrap;
-  cursor: pointer;
-  animation: notifApplyPulse 1.8s ease-in-out infinite;
-  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
-}
-
-.notif-apply-btn:hover {
-  background: var(--primary) !important;
-  color: var(--secondary) !important;
-  transform: translateY(-2px);
-  animation-play-state: paused;
-}
-
-.notif-apply-btn:focus-visible {
-  outline: none;
-  box-shadow: var(--bs-accordion-btn-focus-shadow);
-}
-
-@keyframes notifApplyPulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 45, 46, 0.5);
-  }
-  70% {
-    box-shadow: 0 0 0 12px rgba(255, 45, 46, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 45, 46, 0);
-  }
-}
-
-body.notif-open {
-  overflow: hidden;
-}
-
-/* Small phones */
-@media (max-width: 480px) {
-  .notif-panel {
-    width: 88vw;
-    max-height: 80vh;
-  }
-
-  .notif-close {
-    top: 1.25rem;
-    right: 0.6rem;
-    font-size: 1.35rem;
-  }
-
-  .notif-promo-body {
-    padding: 1.25rem 1.1rem 0.25rem;
-  }
-
-  .notif-promo-title {
-    font-size: 1.35rem;
-  }
-
-  .notif-promo-subtitle {
-  font-size: 0.72em;
-}
-
-  .notif-trades-list {
-    grid-template-columns: 1fr;
-  }
-
-.notif-panel-footer {
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.9rem 1rem;
-  gap: 0.75rem;
-}
-
-.notif-faq-link {
-  width: auto;
-  flex: 1;
-  text-align: left;
-  font-size: 0.75rem;
-}
-
-.notif-apply-btn {
-  width: auto;
-  flex-shrink: 0;
-  padding: 0.6rem 1.2rem !important;
-  font-size: 0.82rem;
-}
-}
-
-/* =========================================================
-   SKARDU ADMISSIONS POPUP
-========================================================= */
-
-/* Overlay */
-.skardu-notif-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(88, 86, 165, 0.35);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  z-index: 1060;
   opacity: 0;
   visibility: hidden;
+  transform: translateX(-50%);
   transition: opacity 0.25s ease;
 }
 
-.skardu-notif-overlay.active {
+.notif-overlay-tabs.active {
   opacity: 1;
   visibility: visible;
 }
 
 
 /* Main Popup */
-.skardu-notif-panel {
+.notif-panel {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -599,6 +349,9 @@ body.notif-open {
 
   width: min(52rem, 94vw);
   height: min(72vh, 42rem);
+
+  display: flex;
+  flex-direction: column;
 
   overflow: hidden;
 
@@ -625,10 +378,10 @@ body.notif-open {
     opacity 0.3s ease,
     transform 0.3s ease;
 
-  animation: skarduPanelGlow 2.4s ease-in-out infinite;
+  animation: notifPanelGlow 2.4s ease-in-out infinite;
 }
 
-.skardu-notif-panel.active {
+.notif-panel.active {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, -50%);
@@ -636,7 +389,7 @@ body.notif-open {
 
 
 /* Popup Glow */
-@keyframes skarduPanelGlow {
+@keyframes notifPanelGlow {
   0% {
     box-shadow:
       0 40px 80px -16px rgba(31, 31, 31, 0.4),
@@ -658,7 +411,7 @@ body.notif-open {
 
 
 /* Close Button */
-.skardu-notif-close {
+.notif-close {
   position: absolute;
   top: 0.7rem;
   right: 0.85rem;
@@ -687,9 +440,71 @@ body.notif-open {
     background 0.15s ease;
 }
 
-.skardu-notif-close:hover {
+.notif-close:hover {
   transform: scale(1.15);
   background: var(--secondary);
+}
+
+
+/* =========================================================
+   TAB SWITCHER (choose which spoke's admission notice shows)
+========================================================= */
+
+.notif-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+
+  flex-shrink: 0;
+
+  padding: 0.85rem 3rem 0;
+}
+
+.notif-tab {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--white);
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  padding: 0.45rem 1.3rem;
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.notif-tab:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.notif-tab.active {
+  background: var(--white);
+  color: var(--secondary);
+}
+
+
+/* =========================================================
+   SLIDES (one per spoke — only .active is shown)
+========================================================= */
+
+.notif-slides {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+.notif-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.notif-slide.active {
+  display: block;
 }
 
 
@@ -697,15 +512,17 @@ body.notif-open {
    MAIN LAYOUT
 ========================================================= */
 
-.skardu-notif-body {
+.notif-body {
   width: 100%;
   height: 100%;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
 
+  box-sizing: border-box;
+  gap: 0.75rem;
   margin: 0;
-  padding: 0;
+  padding: 0.75rem;
 }
 
 
@@ -713,7 +530,7 @@ body.notif-open {
    POSTER
 ========================================================= */
 
-.skardu-notif-image {
+.notif-image {
   width: 100%;
   height: 100%;
 
@@ -723,18 +540,20 @@ body.notif-open {
 
   overflow: hidden;
 
+  box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 1rem;
 
   /* Let the panel background show through */
   background: transparent;
 }
 
-.skardu-notif-image img {
+.notif-image img {
   width: 100%;
   height: 100%;
 
   display: block;
+  box-sizing: border-box;
 
   /* IMPORTANT: SHOW THE ENTIRE IMAGE */
   object-fit: contain;
@@ -750,7 +569,7 @@ body.notif-open {
    RIGHT SIDE CONTENT
 ========================================================= */
 
-.skardu-notif-content {
+.notif-content {
   width: 100%;
   height: 100%;
 
@@ -772,7 +591,7 @@ body.notif-open {
 
 
 /* Title */
-.skardu-notif-content h2 {
+.notif-content h2 {
   margin: 0 0 1.5rem;
 
   color: var(--secondary);
@@ -785,7 +604,7 @@ body.notif-open {
 
 
 /* Subtitle */
-.skardu-notif-subtitle {
+.notif-subtitle {
   display: block;
 
   margin-top: 0.6rem;
@@ -803,7 +622,7 @@ body.notif-open {
    CONTACT BOX
 ========================================================= */
 
-.skardu-notif-query {
+.notif-query {
   width: 100%;
 
   box-sizing: border-box;
@@ -826,7 +645,7 @@ body.notif-open {
   line-height: 1.6;
 }
 
-.skardu-notif-query a {
+.notif-query a {
   display: block;
 
   margin-top: 0.4rem;
@@ -840,7 +659,7 @@ body.notif-open {
   word-break: break-word;
 }
 
-.skardu-notif-query a:hover {
+.notif-query a:hover {
   text-decoration: underline;
 }
 
@@ -849,7 +668,7 @@ body.notif-open {
    APPLY BUTTON
 ========================================================= */
 
-.skardu-notif-apply-btn {
+.notif-apply-btn {
   display: inline-flex !important;
 
   align-items: center;
@@ -877,7 +696,7 @@ body.notif-open {
 
   cursor: pointer;
 
-  animation: skarduApplyPulse 1.8s ease-in-out infinite;
+  animation: notifApplyPulse 1.8s ease-in-out infinite;
 
   transition:
     transform 0.15s ease,
@@ -885,7 +704,7 @@ body.notif-open {
     color 0.15s ease;
 }
 
-.skardu-notif-apply-btn:hover {
+.notif-apply-btn:hover {
   background: var(--primary) !important;
 
   color: var(--secondary) !important;
@@ -896,7 +715,60 @@ body.notif-open {
 }
 
 
-@keyframes skarduApplyPulse {
+/* Button row (Apply Now + View Full Details side by side) */
+.notif-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.notif-btn-row .notif-apply-btn,
+.notif-btn-row .notif-details-btn {
+  width: auto;
+  flex: 1 1 auto;
+}
+
+.notif-details-btn {
+  display: inline-flex !important;
+
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  padding: 0.8rem 1.6rem !important;
+
+  border-radius: 50px !important;
+
+  background: transparent !important;
+
+  color: var(--white) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.55) !important;
+
+  font-weight: 700 !important;
+
+  font-size: 1rem;
+
+  text-decoration: none !important;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.notif-details-btn:hover {
+  background: rgba(255, 255, 255, 0.22) !important;
+  color: var(--white) !important;
+  transform: translateY(-2px);
+}
+
+
+@keyframes notifApplyPulse {
   0% {
     box-shadow:
       0 0 0 0 rgba(255, 45, 46, 0.5);
@@ -915,7 +787,7 @@ body.notif-open {
 
 
 /* Prevent Background Scrolling */
-body.skardu-notif-open {
+body.notif-open {
   overflow: hidden;
 }
 
@@ -926,26 +798,44 @@ body.skardu-notif-open {
 
 @media (max-width: 767px) {
 
-  .skardu-notif-panel {
+  .notif-overlay-tabs {
+    top: 1rem;
+  }
+
+  .notif-panel {
     width: 90vw;
     height: 88vh;
   }
 
-  .skardu-notif-body {
+  .notif-tabs {
+    padding: 0.7rem 2.6rem 0;
+  }
+
+  .notif-tab {
+    padding: 0.4rem 1rem;
+    font-size: 0.78rem;
+  }
+
+  .notif-body {
     display: flex;
+    flex-direction: column;
+  }
+
+  .notif-btn-row {
     flex-direction: column;
   }
 
 
   /* Image takes most of popup */
-  .skardu-notif-image {
+  .notif-image {
     width: 100%;
     height: 58%;
 
     flex-shrink: 0;
+    padding: 0.75rem;
   }
 
-  .skardu-notif-image img {
+  .notif-image img {
     width: 100%;
     height: 100%;
 
@@ -957,7 +847,7 @@ body.skardu-notif-open {
 
 
   /* Content */
-  .skardu-notif-content {
+  .notif-content {
     width: 100%;
     height: 42%;
 
@@ -968,17 +858,17 @@ body.skardu-notif-open {
     justify-content: center;
   }
 
-  .skardu-notif-content h2 {
+  .notif-content h2 {
     margin-bottom: 0.8rem;
 
     font-size: clamp(1.25rem, 5vw, 1.6rem);
   }
 
-  .skardu-notif-subtitle {
+  .notif-subtitle {
     margin-top: 0.35rem;
   }
 
-  .skardu-notif-query {
+  .notif-query {
     margin-bottom: 0.9rem;
 
     padding: 0.7rem;
@@ -988,11 +878,12 @@ body.skardu-notif-open {
     line-height: 1.4;
   }
 
-  .skardu-notif-query a {
+  .notif-query a {
     margin-top: 0.25rem;
   }
 
-  .skardu-notif-apply-btn {
+  .notif-apply-btn,
+  .notif-details-btn {
     padding: 0.65rem 1.2rem !important;
 
     font-size: 0.9rem;
@@ -1000,7 +891,7 @@ body.skardu-notif-open {
 
 
   /* Close */
-  .skardu-notif-close {
+  .notif-close {
     top: 0.6rem;
     right: 0.6rem;
 
@@ -1018,28 +909,38 @@ body.skardu-notif-open {
 
 @media (max-width: 480px) {
 
-  .skardu-notif-panel {
+  .notif-panel {
     width: 92vw;
     height: 88vh;
   }
 
-  .skardu-notif-image {
+  .notif-tabs {
+    padding: 0.6rem 2.4rem 0;
+    gap: 0.35rem;
+  }
+
+  .notif-tab {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.72rem;
+  }
+
+  .notif-image {
     height: 60%;
   }
 
-  .skardu-notif-content {
+  .notif-content {
     height: 40%;
 
     padding: 0.8rem 1rem;
   }
 
-  .skardu-notif-content h2 {
+  .notif-content h2 {
     font-size: 1.25rem;
 
     margin-bottom: 0.6rem;
   }
 
-  .skardu-notif-query {
+  .notif-query {
     font-size: 0.78rem;
 
     margin-bottom: 0.7rem;
@@ -1047,10 +948,67 @@ body.skardu-notif-open {
     padding: 0.65rem;
   }
 
-  .skardu-notif-apply-btn {
+  .notif-apply-btn,
+  .notif-details-btn {
     font-size: 0.85rem;
 
     padding: 0.6rem 1rem !important;
+  }
+}
+
+/* Single admissions popup with both centres shown together */
+.notif-centre {
+  height: auto;
+  min-width: 0;
+  min-height: 0;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.85rem;
+}
+
+.notif-centre + .notif-centre {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.notif-centre-label {
+  display: block;
+  margin: 0 0 0.65rem;
+  padding: 1rem;
+  background: rgba(255, 45, 46, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.85rem;
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.notif-centre-label:hover,
+.notif-centre-label:focus {
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--secondary);
+}
+
+@media (max-width: 767px) {
+  .notif-body {
+    overflow-y: auto;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .notif-centre {
+    height: auto;
+    min-height: 0;
+  }
+
+  .notif-centre + .notif-centre {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
   }
 }
 
@@ -1515,6 +1473,82 @@ body.skardu-notif-open {
 
 .cd-cta-box--closed {
   border-color: rgba(89, 86, 165, 0.3);
+}
+
+/* ── Spoke Admissions Page — hero poster image ────────────── */
+.spoke-intro {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  column-gap: 1.5rem;
+  row-gap: 0;
+}
+
+.spoke-intro-title {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.spoke-intro-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.spoke-intro-copy {
+  min-width: 0;
+}
+
+.spoke-intro-copy .cd-tagline {
+  font-size: clamp(0.95rem, 1.25vw, 1.1rem);
+  line-height: 1.55;
+}
+
+.spoke-hero-img {
+  width: min(18rem, 100%);
+  max-width: 100%;
+  max-height: 30rem;
+  object-fit: contain;
+}
+
+@media (max-width: 767.98px) {
+  .spoke-intro {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .spoke-intro-title {
+    grid-column: auto;
+  }
+
+  .spoke-intro-image {
+    order: 0;
+  }
+
+  .spoke-intro-copy {
+    text-align: center;
+  }
+
+  .spoke-intro-copy .cd-tagline {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .spoke-hero-img {
+    max-height: 12rem;
+  }
+}
+
+.spoke-contact-link {
+  color: var(--text-light);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.spoke-contact-link:hover {
+  color: var(--secondary);
 }
 
 /* ── FAQ – Bootstrap Accordion Overrides ─────────────────── */
