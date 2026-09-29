@@ -10,6 +10,7 @@ const { connectDB } = require('./config/db');
 const pageRoutes = require('./routes/pages');
 const apiRoutes = require('./routes/api');
 const pageController = require('./controllers/pageController');
+const fallback = require('./data/fallback');
 
 const app = express();
 
@@ -19,6 +20,9 @@ app.set('trust proxy', true);
 // Global Google Form Link
 // ==========================================
 app.locals.applyFormLink = 'https://forms.gle/zwhmB7dya9mW47xp7';
+app.locals.applyNowSpokes = fallback.centers.filter((center) =>
+  center.type === 'spoke' && center.registrationsOpen
+);
 
 // Kick off the DB connection (non-blocking - pages fall back to static data
 // until the connection resolves, which matters most on serverless cold starts).

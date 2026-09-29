@@ -69,17 +69,24 @@
             Partner institutes delivering approved courses at the local level across KP and GB.
           </p>
 
-          <% var spokeCenters = centers.filter(function(c){ return c.type === 'spoke'; }); %>
+          <% var spokeCenters = centers.filter(function(c){ return c.type === 'spoke'; }).sort(function(a, b) { return Number(b.registrationsOpen) - Number(a.registrationsOpen); }); %>
           <% spokeCenters.forEach(function(center) { %>
             <div class="mb-4">
-              <p class="cp-spoke-name">
-                <%= center.shortName || center.name %>
-                <span class="cp-location fw-normal"> (<%= center.location %>)</span>
-              </p>
+              <div class="cp-spoke-heading">
+                <p class="cp-spoke-name">
+                  <%= center.shortName || center.name %>
+                  <span class="cp-location fw-normal"> (<%= center.location %>)</span>
+                </p>
+                <% if (center.registrationsOpen) { %>
+                  <span class="cp-badge-open">Registrations Open</span>
+                <% } else { %>
+                  <span class="cp-badge-closed">Registrations Closed</span>
+                <% } %>
+              </div>
               <% if (center.courses && center.courses.length) { %>
                 <div class="d-flex flex-column gap-2">
                   <% center.courses.forEach(function(course) { %>
-                    <a href="/courses/<%= course.slug %>" class="cp-course-row">
+                    <a href="/courses/<%= course.slug %>?center=<%= center.slug %>" class="cp-course-row">
                       <span><%= course.title %></span>
                       <span class="cp-arrow-btn">
                         <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">

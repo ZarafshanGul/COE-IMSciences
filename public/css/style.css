@@ -1390,6 +1390,18 @@ body.notif-open {
   margin-bottom: 0.6rem;
 }
 
+.cp-spoke-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 0.6rem;
+}
+
+.cp-spoke-heading .cp-spoke-name {
+  margin-bottom: 0;
+}
+
 /* ── Course Detail Page ───────────────────────────────────── */
 .cd-breadcrumb a {
   color: var(--secondary);

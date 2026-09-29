@@ -42,8 +42,56 @@
             </div>
           </div>
         </div>
+        <% if (course.programmeBenefits && course.programmeBenefits.length) { %>
+          <div class="cd-card card border-0 p-4 p-md-5 mb-4">
+            <h2 class="fw-bold mb-4" style="font-size:1.5rem;">Programme Benefits</h2>
+            <div class="row g-2">
+              <% course.programmeBenefits.forEach(function(benefit) { %>
+                <div class="col-12 col-sm-6">
+                  <div class="cd-learn-item">
+                    <svg class="cd-check" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span><%= benefit %></span>
+                  </div>
+                </div>
+              <% }); %>
+            </div>
+          </div>
+        <% } %>
+
+        <% if (course.contactEmail || course.address) { %>
+          <div class="cd-card card border-0 p-4 p-md-5 mb-4">
+            <h2 class="fw-bold mb-4" style="font-size:1.5rem;">Location &amp; Contact</h2>
+            <div class="row g-3">
+              <% if (course.contactEmail) { %>
+                <div class="col-12 col-sm-6">
+                  <div class="cd-card card border-0 p-3 h-100">
+                    <p class="cd-meta-label mb-1">For Queries, Contact</p>
+                    <p class="cd-meta-value mb-0"><a href="mailto:<%= course.contactEmail %>" class="spoke-contact-link"><%= course.contactEmail %></a></p>
+                  </div>
+                </div>
+              <% } %>
+              <% if (course.address) { %>
+                <div class="col-12 col-sm-6">
+                  <div class="cd-card card border-0 p-3 h-100">
+                    <p class="cd-meta-label mb-1">Training Address</p>
+                    <p class="cd-meta-value mb-0">
+                      <% if (course.addressMapLink) { %>
+                        <a href="<%= course.addressMapLink %>" target="_blank" rel="noopener noreferrer" class="spoke-contact-link"><%= course.address %></a>
+                      <% } else { %>
+                        <%= course.address %>
+                      <% } %>
+                    </p>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+          </div>
+        <% } %>
 
         <!-- What You'll Learn -->
+        <% if (course.learn && course.learn.length) { %>
         <div class="cd-card card border-0 p-4 p-md-5 mb-4">
           <h2 class="fw-bold mb-4" style="font-size:1.5rem;">What You'll Learn</h2>
           <div class="row g-2">
@@ -59,6 +107,7 @@
             <% }); %>
           </div>
         </div>
+        <% } %>
 
         <!-- CTA Box -->
         <% if (course.registrationsOpen && course.applyLink) { %>
@@ -66,11 +115,11 @@
             <p class="fw-semibold mb-4" style="font-size:1.2rem; color:var(--text-dark);">
               Ready to transform your career with <%= course.title %>?
             </p>
-            <a href="<%= applyFormLink %>"
+            <a href="<%= course.applyLink %>"
                target="_blank" rel="noopener noreferrer"
                class="btn btn-brand rounded-pill px-5 py-3 fw-bold"
                style="font-size:1.05rem;">
-              Applications Closed
+              Apply Now
             </a>
           </div>
         <% } else { %>

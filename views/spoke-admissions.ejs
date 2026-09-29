@@ -16,9 +16,11 @@
         <!-- Hero -->
         <div class="spoke-intro mb-4">
           <h1 class="cd-title spoke-intro-title mb-3"><%= spoke.title %></h1>
-          <div class="spoke-intro-image">
-            <img src="<%= spoke.heroImage %>" alt="<%= spoke.heroImageAlt %>" class="spoke-hero-img img-fluid" />
-          </div>
+          <% if (spoke.heroImage) { %>
+            <div class="spoke-intro-image">
+              <img src="<%= spoke.heroImage %>" alt="<%= spoke.heroImageAlt %>" class="spoke-hero-img img-fluid" />
+            </div>
+          <% } %>
           <div class="spoke-intro-copy">
             <p class="cd-tagline mb-0"><%= spoke.tagline %></p>
           </div>
@@ -28,12 +30,19 @@
         <div class="cd-card card border-0 p-4 p-md-5 mb-4">
           <h2 class="fw-bold mb-4" style="font-size:1.5rem;">Courses Offered</h2>
           <div class="row g-2">
-            <% spoke.courses.forEach(function(c) { %>
+            <% spoke.courses.forEach(function(c, courseIndex) { %>
               <div class="col-12 col-sm-6 <%= spoke.courses.length === 2 ? 'col-lg-6' : 'col-lg-4' %>">
-                <div class="cat-pill">
-                  <span class="cat-dot">•</span>
-                  <span><%= c %></span>
-                </div>
+                  <% if (spoke.courseSlugs && spoke.courseSlugs[courseIndex]) { %>
+                    <a href="/courses/<%= spoke.courseSlugs[courseIndex] %>?center=<%= spoke.slug %>" class="cat-pill text-decoration-none">
+                      <span class="cat-dot">•</span>
+                      <span><%= c %></span>
+                    </a>
+                  <% } else { %>
+                    <div class="cat-pill">
+                      <span class="cat-dot">•</span>
+                      <span><%= c %></span>
+                    </div>
+                  <% } %>
               </div>
             <% }); %>
           </div>
@@ -70,9 +79,27 @@
           <% } %>
         </div>
 
-        <!-- How to Apply & Contact -->
+        <% if (spoke.benefits && spoke.benefits.length) { %>
+          <div class="cd-card card border-0 p-4 p-md-5 mb-4">
+            <h2 class="fw-bold mb-4" style="font-size:1.5rem;">Programme Benefits</h2>
+            <div class="row g-2">
+              <% spoke.benefits.forEach(function(benefit) { %>
+                <div class="col-12 col-sm-6">
+                  <div class="cd-learn-item">
+                    <svg class="cd-check" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span><%= benefit %></span>
+                  </div>
+                </div>
+              <% }); %>
+            </div>
+          </div>
+        <% } %>
+
+        <!-- Location & Contact -->
         <div class="cd-card card border-0 p-4 p-md-5 mb-4">
-          <h2 class="fw-bold mb-4" style="font-size:1.5rem;">How to Apply &amp; Contact</h2>
+          <h2 class="fw-bold mb-4" style="font-size:1.5rem;">Location &amp; Contact</h2>
 
           <div class="row g-3">
             <div class="col-12 col-sm-6">

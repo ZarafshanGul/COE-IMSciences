@@ -39,16 +39,18 @@ exports.renderCourses = async (req, res) => {
 };
 
 exports.renderCourse = (req, res) => {
-  const course = fallback.courseDetails[req.params.slug];
-  if (!course) {
+  const baseCourse = fallback.courseDetails[req.params.slug];
+  if (!baseCourse) {
     return res.status(404).render('404', {
       pageTitle:   '404 | COE IMSciences',
       activeNav:   '',
       footerSpokes: fallback.footerSpokes,
     });
   }
+  const offering = fallback.courseOfferingsByCenter[req.query.center]?.[req.params.slug];
+  const course = offering ? { ...baseCourse, ...offering } : baseCourse;
   res.render('course-detail', {
-    pageTitle:   `${course.title} | COE IMSciences`,
+    pageTitle:   `${course.title} | ${course.contactEmail ? 'Admissions' : 'COE IMSciences'}`,
     activeNav:   'courses',
     course,
     footerSpokes: fallback.footerSpokes,

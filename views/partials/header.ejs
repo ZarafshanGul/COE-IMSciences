@@ -32,16 +32,19 @@
     <div class="container-xxl px-3 px-md-4 px-lg-5">
 
       <!-- Mobile: Apply Now on left -->
+      <% if (applyNowSpokes.length) { %>
       <div class="dropdown d-lg-none">
         <button class="btn btn-brand dropdown-toggle rounded-pill px-4 py-2 fw-bold" type="button"
           data-bs-toggle="dropdown" aria-expanded="false" style="font-size:0.875rem;">
           Apply Now
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="/skardu">Skardu</a></li>
-          <li><a class="dropdown-item" href="/haripur">Haripur</a></li>
+          <% applyNowSpokes.forEach(function(center) { %>
+            <li><a class="dropdown-item" href="/<%= center.slug %>"><%= center.applyLabel || center.location %></a></li>
+          <% }); %>
         </ul>
       </div>
+      <% } %>
 
       <!-- Hamburger -->
       <button class="navbar-toggler ms-auto border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
@@ -93,16 +96,19 @@
 
         <!-- Desktop right-side actions -->
         <div class="d-none d-lg-flex align-items-center gap-2 ms-auto">
+          <% if (applyNowSpokes.length) { %>
           <div class="dropdown">
             <button class="btn btn-brand dropdown-toggle rounded-pill px-4 py-2 fw-bold" type="button"
               data-bs-toggle="dropdown" aria-expanded="false">
               Apply Now
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="/skardu">Skardu</a></li>
-              <li><a class="dropdown-item" href="/haripur">Haripur</a></li>
+              <% applyNowSpokes.forEach(function(center) { %>
+                <li><a class="dropdown-item" href="/<%= center.slug %>"><%= center.applyLabel || center.location %></a></li>
+              <% }); %>
             </ul>
           </div>
+          <% } %>
           <button class="btn-a11y" id="textSizeBtn" title="Cycle text size"
             aria-label="Accessibility: adjust text size">
             <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">

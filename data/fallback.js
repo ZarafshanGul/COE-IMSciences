@@ -42,14 +42,26 @@ const centers = [
     registrationsOpen: false,
   },
   {
+    name: 'Government Technical and Vocational Training Centre for Women',
+    shortName: 'Government Technical and Vocational Training Centre for Women',
+    location: 'KTS Haripur',
+    applyLabel: 'Haripur',
+    slug: 'haripur',
+    type: 'spoke',
+    address: 'Govt. Technical & Vocational Centre (Women), near Civil Hospital, Utman Chowk, Sector#4, KTS, Haripur',
+    mapLink: 'https://maps.app.goo.gl/7XwSBaiTbzmjNta78',
+    registrationsOpen: true,
+  },
+  {
     name: 'Karakoram International University',
     shortName: 'Karakoram International University',
-    location: 'KIU',
+    location: 'Gilgit',
+    applyLabel: 'Gilgit',
     slug: 'kiu-gilgit',
     type: 'spoke',
     address: 'University Road, Gilgit-Baltistan',
     mapLink: 'https://maps.app.goo.gl/qzhSV8fv7Tf7pKAFA',
-    registrationsOpen: false,
+    registrationsOpen: true,
   },
 ];
 
@@ -95,7 +107,7 @@ const imsCourses = [
 // ------ PREVIOUS (CLOSED) IMSciences COURSES ----------------
 const prevCourses = [
   { slug: 'full-stack-web-development', title: 'Full Stack Web Development' },
-  { slug: 'digital-marketing',          title: 'Digital Marketing'          },
+  { slug: 'digital-marketing',          title: 'Digital Marketing & Content Creation' },
 ];
 
 // ------ SPOKE COURSES (no detail pages needed) ---------------
@@ -108,9 +120,15 @@ const coursesByCenter = {
     { title: 'Full Stack Web Development', slug: 'full-stack-web-development' },
     { title: 'E-Commerce',                 slug: 'e-commerce'                 },
   ],
+  haripur: [
+    { title: 'Web Development', slug: 'web-development' },
+    { title: 'E-Commerce', slug: 'e-commerce' },
+    { title: 'Digital Marketing & Content Creation', slug: 'digital-marketing' },
+  ],
   'kiu-gilgit': [
-    { title: 'Digital Marketing', slug: 'digital-marketing' },
-    { title: 'Web Development',   slug: 'web-development'   },
+    { title: 'Artificial Intelligence', slug: 'artificial-intelligence' },
+    { title: 'Robotics', slug: 'kiu-robotics' },
+    { title: 'Digital Marketing & Content Creation', slug: 'digital-marketing' },
   ],
 };
 
@@ -126,7 +144,7 @@ const allCourseCategories = [
   'Artificial Intelligence',
   'Game Development',
   'Quantum Computing',
-  'Digital Marketing',
+  'Digital Marketing & Content Creation',
   'E-Commerce',
   'Financial & Data Engineering',
   'Software Development & Testing',
@@ -315,6 +333,23 @@ const heroSlides = [
 
 const courseDetails = {
 
+  'kiu-robotics': {
+    slug: 'kiu-robotics',
+    title: 'Robotics',
+    tagline: 'A fully funded 3-month professional certification programme at Karakoram International University, Gilgit.',
+    about: 'Karakoram International University, with the support of the EU-funded TVET Sector Support Programme, invites eligible female candidates to apply for this professional certification programme at the Main Campus, Institute for Professional Development, KIU, Gilgit, Gilgit-Baltistan.',
+    duration: '3-month certification.',
+    prerequisites: 'Female candidates with Gilgit-Baltistan domicile; Intermediate or equivalent qualification; basic computer knowledge is mandatory.',
+    learn: [],
+    programmeBenefits: [
+      'International certification, including a certification test free of cost',
+      'Travel allowance as per programme policy',
+      'One month of internship/apprenticeship (on-the-job training)',
+      'One-time stipend upon completion of the internship/apprenticeship component',
+    ],
+    applyLink: 'https://forms.gle/eEjVAMyhwwZJd51D6',
+    registrationsOpen: true,
+  },
   // ── 1. ARTIFICIAL INTELLIGENCE ─────────────────────────────
   'artificial-intelligence': {
     slug: 'artificial-intelligence',
@@ -485,7 +520,7 @@ const courseDetails = {
 
   'digital-marketing': {
     slug: 'digital-marketing',
-    title: 'Digital Marketing',
+    title: 'Digital Marketing & Content Creation',
     tagline: 'Master social media marketing, SEO, Google Ads, and online branding to grow businesses in the digital age.',
     about: 'This Digital Marketing course prepared learners for careers in digital marketing through practical campaigns, live ad management, and real-world projects spanning SEO, social media, content marketing, and e-commerce advertising.',
     duration: '6 months with mandatory on-the-job training.',
@@ -504,6 +539,56 @@ const courseDetails = {
     ],
     applyLink: null,
     registrationsOpen: false,
+  },
+};
+
+const courseOfferingsByCenter = {
+  'kiu-gilgit': {
+    'artificial-intelligence': {
+      tagline: 'A fully funded 3-month professional certification programme at Karakoram International University, Gilgit.',
+      about: 'Karakoram International University, with the support of the EU-funded TVET Sector Support Programme, invites eligible female candidates to apply for this professional certification programme at the Main Campus, Institute for Professional Development, KIU, Gilgit, Gilgit-Baltistan.',
+      duration: '3-month certification.',
+      prerequisites: 'Female candidates with Gilgit-Baltistan domicile; Intermediate or equivalent qualification; basic computer knowledge is mandatory.',
+      programmeBenefits: [
+        'International certification, including a certification test free of cost',
+        'Travel allowance as per programme policy',
+        'One month of internship/apprenticeship (on-the-job training)',
+        'One-time stipend upon completion of the internship/apprenticeship component',
+      ],
+      applyLink: 'https://forms.gle/eEjVAMyhwwZJd51D6',
+      registrationsOpen: true,
+      contactEmail: 'Aftab.ahmed@kiu.edu.pk',
+      address: 'Main Campus, Institute for Professional Development, Karakoram International University, Gilgit, Gilgit-Baltistan',
+      addressMapLink: 'https://maps.app.goo.gl/qzhSV8fv7Tf7pKAFA',
+    },
+    'digital-marketing': {
+      tagline: 'A fully funded 6-month professional certification programme at Karakoram International University, Gilgit.',
+      about: 'Karakoram International University, with the support of the EU-funded TVET Sector Support Programme, invites eligible female candidates to apply for this professional certification programme at the Main Campus, Institute for Professional Development, KIU, Gilgit, Gilgit-Baltistan.',
+      duration: '6-month certification.',
+      prerequisites: 'Female candidates with Gilgit-Baltistan domicile; Matric or Intermediate qualification. Applicants should be interested in digital marketing, social media, content creation, freelancing, and online careers.',
+      programmeBenefits: [
+        'International certification, including a certification test free of cost',
+        'Travel allowance as per programme policy',
+        'One month of internship/apprenticeship (on-the-job training)',
+        'One-time stipend upon completion of the internship/apprenticeship component',
+      ],
+      applyLink: 'https://forms.gle/eEjVAMyhwwZJd51D6',
+      registrationsOpen: true,
+      contactEmail: 'Aftab.ahmed@kiu.edu.pk',
+      address: 'Main Campus, Institute for Professional Development, Karakoram International University, Gilgit, Gilgit-Baltistan',
+      addressMapLink: 'https://maps.app.goo.gl/qzhSV8fv7Tf7pKAFA',
+    },
+  },
+  haripur: {
+    'digital-marketing': {
+      tagline: 'Digital Marketing and Content Creation training at the Government Technical and Vocational Training Centre for Women, KTS Haripur.',
+      prerequisites: 'Female candidates having Khyber Pakhtunkhwa or Merged District domicile; basic computer knowledge/skills are mandatory; age 18 to 40; Matric with computer skills, preferably Intermediate. Female candidates with disabilities are encouraged to apply. Selection is through interview, with preference for candidates from District Haripur.',
+      applyLink: 'https://forms.gle/MstEoJEr6WCAWZtP8',
+      registrationsOpen: true,
+      contactEmail: 'Admnssvtiwkts@gmail.com',
+      address: 'Government Technical and Vocational Training Centre for Women, near Civil Hospital, Utman Chowk, Sector 4, KTS, Haripur',
+      addressMapLink: 'https://maps.app.goo.gl/7XwSBaiTbzmjNta78',
+    },
   },
 };
 
@@ -549,6 +634,57 @@ const spokePages = {
     mapLink: 'https://maps.app.goo.gl/JA5fahqn3934AQ1x6',
     applyLink: 'https://forms.gle/jBY3jdBfJU2HsxaJ7',
     deadline: null,
+    registrationsOpen: false,
+  },
+
+  // ── KIU GILGIT ─────────────────────────────────────────────
+  'kiu-gilgit': {
+    slug: 'kiu-gilgit',
+    heroImage: '/images/gilgit.jpeg',
+    heroImageAlt: 'Karakoram International University, Gilgit',
+    title: 'Karakoram International University, Gilgit',
+    tagline: 'Karakoram International University, with the support of the EU-funded TVET Sector Support Programme, is pleased to announce fully funded professional training programmes at the Main Campus, Institute for Professional Development, KIU, Gilgit, Gilgit-Baltistan.',
+    courses: [
+      'Artificial Intelligence (3 Month Certification)',
+      'Robotics (3 Month Certification)',
+      'Digital Marketing & Content Creation (6 Month Certification)',
+    ],
+    courseSlugs: [
+      'artificial-intelligence',
+      'kiu-robotics',
+      'digital-marketing',
+    ],
+    eligibilityGroups: [
+      {
+        title: 'Artificial Intelligence & Robotics',
+        items: [
+          'Female candidates with Gilgit-Baltistan domicile',
+          'Intermediate or equivalent qualification',
+          'Basic computer knowledge is mandatory',
+        ],
+      },
+      {
+        title: 'Digital Marketing & Content Creation',
+        items: [
+          'Female candidates with Gilgit-Baltistan domicile',
+          'Matric or Intermediate qualification',
+          'Interest in digital marketing, social media, content creation, freelancing, and online careers',
+        ],
+      },
+    ],
+    benefits: [
+      'International certification; take an international certification test free of cost',
+      'One-time stipend upon completion of the internship/apprenticeship component',
+      'One month of internship/apprenticeship (on-the-job training)',
+      'Travel allowance as per programme policy',
+    ],
+    note: null,
+    contactEmail: 'Aftab.ahmed@kiu.edu.pk',
+    contactPhone: null,
+    address: 'Main Campus, Institute for Professional Development, Karakoram International University, Gilgit, Gilgit-Baltistan',
+    mapLink: 'https://maps.app.goo.gl/qzhSV8fv7Tf7pKAFA',
+    applyLink: 'https://forms.gle/eEjVAMyhwwZJd51D6',
+    deadline: null,
     registrationsOpen: true,
   },
 
@@ -562,8 +698,9 @@ const spokePages = {
     courses: [
       'Web Development',
       'E-Commerce',
-      'Digital Marketing and Content Creation',
+      'Digital Marketing & Content Creation',
     ],
+    courseSlugs: [null, null, 'digital-marketing'],
     eligibilityGroups: [
       {
         title: 'Eligibility Criteria',
@@ -603,5 +740,6 @@ module.exports = {
   spokeInstitutes,
   heroSlides,
   courseDetails,
+  courseOfferingsByCenter,
   spokePages,
 };
