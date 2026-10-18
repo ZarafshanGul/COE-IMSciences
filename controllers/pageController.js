@@ -47,8 +47,18 @@ exports.renderCourse = (req, res) => {
       footerSpokes: fallback.footerSpokes,
     });
   }
-  const offering = fallback.courseOfferingsByCenter[req.query.center]?.[req.params.slug];
-  const course = offering ? { ...baseCourse, ...offering } : baseCourse;
+  const center = fallback.centers.find(({ slug }) => slug === req.query.center)
+    || fallback.centers.find(({ type }) => type === 'hub');
+  const offering = fallback.courseOfferingsByCenter[center?.slug]?.[req.params.slug];
+  const courseDetails = offering ? { ...baseCourse, ...offering } : baseCourse;
+  const course = {
+    ...courseDetails,
+    registrationsOpen: Boolean(
+      center?.registrationsOpen
+      && courseDetails.applyLink
+      && (offering || baseCourse.registrationsOpen)
+    ),
+  };
   res.render('course-detail', {
     pageTitle:   `${course.title} | ${course.contactEmail ? 'Admissions' : 'COE IMSciences'}`,
     activeNav:   'courses',
@@ -67,10 +77,15 @@ exports.renderFaq = async (req, res) => {
 };
 
 exports.renderSpokePage = (req, res, next) => {
-  const spoke = fallback.spokePages[req.params.spoke];
-  if (!spoke) {
+  const spokePage = fallback.spokePages[req.params.spoke];
+  if (!spokePage) {
     return next();
   }
+  const center = fallback.centers.find(({ slug }) => slug === req.params.spoke);
+  const spoke = {
+    ...spokePage,
+    registrationsOpen: Boolean(center?.registrationsOpen && spokePage.applyLink),
+  };
   res.render('spoke-admissions', {
     pageTitle:   `${spoke.title} | Admissions | COE IMSciences`,
     activeNav:   '',

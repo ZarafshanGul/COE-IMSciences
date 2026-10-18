@@ -23,6 +23,10 @@ app.locals.applyFormLink = 'https://forms.gle/zwhmB7dya9mW47xp7';
 app.locals.applyNowSpokes = fallback.centers.filter((center) =>
   center.type === 'spoke' && center.registrationsOpen
 );
+app.locals.admissionNotices = fallback.centers
+  .filter((center) => center.type === 'spoke' && center.registrationsOpen)
+  .map((center) => ({ center, admissions: fallback.spokePages[center.slug] }))
+  .filter(({ admissions }) => admissions && admissions.applyLink);
 
 // Kick off the DB connection (non-blocking - pages fall back to static data
 // until the connection resolves, which matters most on serverless cold starts).

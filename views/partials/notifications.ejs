@@ -1,4 +1,5 @@
 <!-- Blur overlay -->
+<% if (admissionNotices.length) { %>
 <div class="notif-overlay" id="notifOverlay"></div>
 
 <!-- Spoke admissions popup -->
@@ -6,54 +7,23 @@
   <button class="notif-close" id="notifClose" aria-label="Close">&times;</button>
 
   <div class="notif-body">
-    <% /* Skardu admissions notification retained for future use.
-    <section class="notif-content notif-centre" aria-labelledby="notifSkarduTitle">
-      <a href="/skardu" class="notif-centre-label">Skardu</a>
-      <h2 id="notifSkarduTitle">
-        Admissions Are <span>Now Open!</span>
-        <span class="notif-subtitle">Centre of Excellence, Government Polytechnic Institute, Skardu</span>
-      </h2>
-      <p class="notif-query">
-        For queries, please contact:
-        <a href="mailto:asimali@gbdtesd.gov.pk">asimali@gbdtesd.gov.pk</a>
-      </p>
-      <div class="notif-btn-row">
-        <a href="https://forms.gle/jBY3jdBfJU2HsxaJ7" target="_blank" rel="noopener noreferrer" class="btn btn-brand notif-apply-btn">Apply Now</a>
-        <a href="/skardu" class="btn notif-details-btn">View Full Details</a>
-      </div>
-    </section>
-    */ %>
-
-    <section class="notif-content notif-centre" aria-labelledby="notifKiuTitle">
-      <a href="/kiu-gilgit" class="notif-centre-label">Gilgit</a>
-      <h2 id="notifKiuTitle">
-        Admissions Are <span>Now Open!</span>
-        <span class="notif-subtitle">Karakoram International University, Gilgit</span>
-      </h2>
-      <p class="notif-query">
-        For queries, please contact:
-        <a href="mailto:Aftab.ahmed@kiu.edu.pk">Aftab.ahmed@kiu.edu.pk</a>
-      </p>
-      <div class="notif-btn-row">
-        <a href="https://forms.gle/eEjVAMyhwwZJd51D6" target="_blank" rel="noopener noreferrer" class="btn btn-brand notif-apply-btn">Apply Now</a>
-        <a href="/kiu-gilgit" class="btn notif-details-btn">View Full Details</a>
-      </div>
-    </section>
-
-    <section class="notif-content notif-centre" aria-labelledby="notifHaripurTitle">
-      <a href="/haripur" class="notif-centre-label">Haripur</a>
-      <h2 id="notifHaripurTitle">
-        Admissions Are <span>Now Open!</span>
-        <span class="notif-subtitle">Government Technical and Vocational Training Centre for Women, KTS Haripur</span>
-      </h2>
-      <p class="notif-query">
-        For queries, please contact:
-        <a href="mailto:Admnssvtiwkts@gmail.com">Admnssvtiwkts@gmail.com</a>
-      </p>
-      <div class="notif-btn-row">
-        <a href="https://forms.gle/MstEoJEr6WCAWZtP8" target="_blank" rel="noopener noreferrer" class="btn btn-brand notif-apply-btn">Apply Now</a>
-        <a href="/haripur" class="btn notif-details-btn">View Full Details</a>
-      </div>
-    </section>
+    <% admissionNotices.forEach(function(notice, index) { %>
+      <section class="notif-content notif-centre" aria-labelledby="notifCentreTitle<%= index %>">
+        <a href="/<%= notice.center.slug %>" class="notif-centre-label"><%= notice.center.applyLabel || notice.center.location %></a>
+        <h2 id="notifCentreTitle<%= index %>">
+          Admissions Are <span>Now Open!</span>
+          <span class="notif-subtitle"><%= notice.admissions.title %></span>
+        </h2>
+        <p class="notif-query">
+          For queries, please contact:
+          <a href="mailto:<%= notice.admissions.contactEmail %>"><%= notice.admissions.contactEmail %></a>
+        </p>
+        <div class="notif-btn-row">
+          <a href="<%= notice.admissions.applyLink %>" target="_blank" rel="noopener noreferrer" class="btn btn-brand notif-apply-btn">Apply Now</a>
+          <a href="/<%= notice.center.slug %>" class="btn notif-details-btn">View Full Details</a>
+        </div>
+      </section>
+    <% }); %>
   </div>
 </div>
+<% } %>

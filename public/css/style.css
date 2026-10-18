@@ -1012,6 +1012,22 @@ body.notif-open {
   }
 }
 
+.notif-panel:has(.notif-centre:only-child) {
+  height: auto;
+  max-height: min(72vh, 42rem);
+}
+
+.notif-body:has(.notif-centre:only-child) {
+  height: auto;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 767px) {
+  .notif-panel:has(.notif-centre:only-child) {
+    max-height: 88vh;
+  }
+}
+
 /* ==========================================================
    HERO CAROUSEL
    ========================================================== */

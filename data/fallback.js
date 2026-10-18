@@ -19,7 +19,7 @@ const centers = [
     type: 'hub',
     address: 'Institute of Management Sciences, Peshawar, KP',
     mapLink: 'https://www.google.com/maps/search/?api=1&query=Institute+of+Management+Sciences+Peshawar',
-    registrationsOpen: true,
+    registrationsOpen: false,
   },
   {
     name: 'Govt. Polytechnic Institute',
@@ -50,7 +50,7 @@ const centers = [
     type: 'spoke',
     address: 'Govt. Technical & Vocational Centre (Women), near Civil Hospital, Utman Chowk, Sector#4, KTS, Haripur',
     mapLink: 'https://maps.app.goo.gl/7XwSBaiTbzmjNta78',
-    registrationsOpen: true,
+    registrationsOpen: false,
   },
   {
     name: 'Karakoram International University',
@@ -72,6 +72,7 @@ const footerSpokes = [
     address: 'Adnan Chowk, Sector-4, Khalabat Township, Haripur, KP',
     mapLink: 'https://maps.app.goo.gl/7XwSBaiTbzmjNta78',
     page: 'haripur',
+    registrationsOpen: false,
   },
   {
     name: 'D.I.Khan',
@@ -556,7 +557,6 @@ const courseOfferingsByCenter = {
         'One-time stipend upon completion of the internship/apprenticeship component',
       ],
       applyLink: 'https://forms.gle/eEjVAMyhwwZJd51D6',
-      registrationsOpen: true,
       contactEmail: 'Aftab.ahmed@kiu.edu.pk',
       address: 'Main Campus, Institute for Professional Development, Karakoram International University, Gilgit, Gilgit-Baltistan',
       addressMapLink: 'https://maps.app.goo.gl/qzhSV8fv7Tf7pKAFA',
@@ -573,7 +573,6 @@ const courseOfferingsByCenter = {
         'One-time stipend upon completion of the internship/apprenticeship component',
       ],
       applyLink: 'https://forms.gle/eEjVAMyhwwZJd51D6',
-      registrationsOpen: true,
       contactEmail: 'Aftab.ahmed@kiu.edu.pk',
       address: 'Main Campus, Institute for Professional Development, Karakoram International University, Gilgit, Gilgit-Baltistan',
       addressMapLink: 'https://maps.app.goo.gl/qzhSV8fv7Tf7pKAFA',
@@ -583,8 +582,7 @@ const courseOfferingsByCenter = {
     'digital-marketing': {
       tagline: 'Digital Marketing and Content Creation training at the Government Technical and Vocational Training Centre for Women, KTS Haripur.',
       prerequisites: 'Female candidates having Khyber Pakhtunkhwa or Merged District domicile; basic computer knowledge/skills are mandatory; age 18 to 40; Matric with computer skills, preferably Intermediate. Female candidates with disabilities are encouraged to apply. Selection is through interview, with preference for candidates from District Haripur.',
-      applyLink: 'https://forms.gle/MstEoJEr6WCAWZtP8',
-      registrationsOpen: true,
+      applyLink: null,
       contactEmail: 'Admnssvtiwkts@gmail.com',
       address: 'Government Technical and Vocational Training Centre for Women, near Civil Hospital, Utman Chowk, Sector 4, KTS, Haripur',
       addressMapLink: 'https://maps.app.goo.gl/7XwSBaiTbzmjNta78',
@@ -593,9 +591,8 @@ const courseOfferingsByCenter = {
 };
 
 // ------ SPOKE ADMISSIONS PAGES --------------------------------
-// Full standalone admissions pages for spoke centres currently
-// running open applications. Linked from the notifications popup
-// ("View Full Details") and from the footer spokes grid.
+// Full standalone admissions pages for spoke centres, linked from the
+// notifications popup and the footer spokes grid.
 const spokePages = {
 
   // ── SKARDU ──────────────────────────────────────────────────
@@ -634,7 +631,6 @@ const spokePages = {
     mapLink: 'https://maps.app.goo.gl/JA5fahqn3934AQ1x6',
     applyLink: 'https://forms.gle/jBY3jdBfJU2HsxaJ7',
     deadline: null,
-    registrationsOpen: false,
   },
 
   // ── KIU GILGIT ─────────────────────────────────────────────
@@ -685,7 +681,6 @@ const spokePages = {
     mapLink: 'https://maps.app.goo.gl/qzhSV8fv7Tf7pKAFA',
     applyLink: 'https://forms.gle/eEjVAMyhwwZJd51D6',
     deadline: null,
-    registrationsOpen: true,
   },
 
   // ── HARIPUR ─────────────────────────────────────────────────
@@ -694,7 +689,7 @@ const spokePages = {
     heroImage: '/images/haripur-admissions.jpeg',
     heroImageAlt: 'Government Technical and Vocational Training Centre for Women, KTS Haripur — Admissions Announcement',
     title: 'Government Technical and Vocational Training Centre for Women, KTS Haripur',
-    tagline: 'The Khyber Pakhtunkhwa Technical Education & Vocational Training Authority (KP-TEVTA), with the support of the TVET Sector Support Programme (TVET SSP), invites applications for the following free training courses offered through the Centre of Excellence at the Gtvc (Women) KTS, Haripur.',
+    tagline: 'The Khyber Pakhtunkhwa Technical Education & Vocational Training Authority (KP-TEVTA), with the support of the TVET Sector Support Programme (TVET SSP), offers the following free training courses through the Centre of Excellence at the Gtvc (Women) KTS, Haripur.',
     courses: [
       'Web Development',
       'E-Commerce',
@@ -719,9 +714,8 @@ const spokePages = {
     contactPhone: '0995-619936',
     address: 'Govt. Technical & Vocational Centre (Women), near Civil Hospital, Utman Chowk, Sector#4, KTS, Haripur',
     mapLink: 'https://maps.app.goo.gl/7XwSBaiTbzmjNta78',
-    applyLink: 'https://forms.gle/MstEoJEr6WCAWZtP8',
+    applyLink: null,
     deadline: '15th September, 2026',
-    registrationsOpen: true,
   },
 };
 

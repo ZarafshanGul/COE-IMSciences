@@ -113,9 +113,9 @@
               <p class="spoke-footer-addr">
                 <%= spoke.address %>
               </p>
-              <% if (spoke.page) { %>
+              <% if (spoke.page && spoke.page !== 'haripur' && spoke.page !== 'skardu') { %>
                 <a href="/<%= spoke.page %>" class="spoke-footer-link d-block mb-1">
-                  Admissions open — view details
+                  Admissions <%= spoke.registrationsOpen === false ? 'closed' : 'open' %> — view details
                   <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
                     <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" />
                   </svg>
