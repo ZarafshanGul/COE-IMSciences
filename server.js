@@ -23,6 +23,9 @@ app.locals.applyFormLink = 'https://forms.gle/zwhmB7dya9mW47xp7';
 app.locals.applyNowSpokes = fallback.centers.filter((center) =>
   center.type === 'spoke' && center.registrationsOpen
 );
+app.locals.closedAdmissionCenters = fallback.centers.filter((center) =>
+  !center.registrationsOpen
+);
 app.locals.admissionNotices = fallback.centers
   .filter((center) => center.type === 'spoke' && center.registrationsOpen)
   .map((center) => ({ center, admissions: fallback.spokePages[center.slug] }))

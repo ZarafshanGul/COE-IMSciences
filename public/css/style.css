@@ -223,8 +223,12 @@ img {
   border-color: rgba(255, 255, 255, 0.16);
 }
 
-.navbar-purple .dropdown-item {
+.navbar-purple .dropdown-item,
+.navbar-purple .dropdown-item-text {
   color: #fff;
+}
+
+.navbar-purple .dropdown-item {
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 

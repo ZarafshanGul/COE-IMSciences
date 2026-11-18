@@ -61,7 +61,7 @@ const centers = [
     type: 'spoke',
     address: 'University Road, Gilgit-Baltistan',
     mapLink: 'https://maps.app.goo.gl/qzhSV8fv7Tf7pKAFA',
-    registrationsOpen: true,
+    registrationsOpen: false,
   },
 ];
 
@@ -85,6 +85,8 @@ const footerSpokes = [
     institute: 'Karakoram International University, Gilgit',
     address: 'University Road, Gilgit-Baltistan',
     mapLink: 'https://maps.app.goo.gl/qzhSV8fv7Tf7pKAFA',
+    page: 'kiu-gilgit',
+    registrationsOpen: false,
   },
   {
     name: 'Skardu',
