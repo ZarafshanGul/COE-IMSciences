@@ -87,11 +87,6 @@ $(document).on('keyup', function (e) {
   }
 });
 
-/* Show every time someone opens the site / visits the homepage */
-if (window.location.pathname === '/' || window.location.pathname === '/index') {
-  openNotifications();
-}
-
   /* ── 3. TEXT-SIZE ACCESSIBILITY TOGGLE ─────────────────── */
   var sizes = ['100%', '112%', '125%'];
   var sizeStep = parseInt(localStorage.getItem('coeTextStep') || '0', 10);
